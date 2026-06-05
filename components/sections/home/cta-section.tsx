@@ -26,7 +26,7 @@ export default function CtaSection() {
           <Button size="lg" variant="brand" asChild>
             <Link href="/contact">在线留言</Link>
           </Button>
-          <Button size="lg" variant="outlineSweet" asChild className="border-white/50 text-white hover:bg-white/20">
+          <Button size="lg" variant="default" asChild className="border-white/50 text-white hover:bg-white/20">
             <a href={`tel:${siteConfig.contact.phone}`}>电话咨询</a>
           </Button>
         </div>

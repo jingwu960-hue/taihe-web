@@ -2,6 +2,7 @@
 
 import { type VariantProps } from "class-variance-authority";
 import { Menu, Phone } from "lucide-react";
+import Link from "next/link";
 import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
@@ -75,13 +76,13 @@ export default function Navbar({
       <div className="max-w-container relative mx-auto">
         <NavbarComponent>
           <NavbarLeft>
-            <a
+            <Link
               href={homeUrl}
               className="flex items-center gap-2 text-xl font-bold"
             >
               {logo}
               {name}
-            </a>
+            </Link>
             {showNavigation && (customNavigation || <Navigation />)}
           </NavbarLeft>
           <NavbarRight>
@@ -99,13 +100,13 @@ export default function Navbar({
                   </a>
                 </Button>
               ) : (
-                <a
+                <Link
                   key={`${action.href}-${action.text}`}
                   href={action.href}
                   className="hidden text-sm md:block"
                 >
                   {action.text}
-                </a>
+                </Link>
               ),
             )}
             <Sheet>
@@ -122,20 +123,20 @@ export default function Navbar({
               <SheetContent side="right">
                 <SheetTitle className="sr-only">Navigation menu</SheetTitle>
                 <nav className="grid gap-6 text-lg font-medium">
-                  <a
+                  <Link
                     href={homeUrl}
                     className="flex items-center gap-2 text-xl font-bold"
                   >
                     <span>{name}</span>
-                  </a>
+                  </Link>
                   {mobileLinks.map((link) => (
-                    <a
+                    <Link
                       key={`${link.href}-${link.text}`}
                       href={link.href}
                       className="text-muted-foreground hover:text-foreground"
                     >
                       {link.text}
-                    </a>
+                    </Link>
                   ))}
                 </nav>
               </SheetContent>

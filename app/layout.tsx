@@ -1,9 +1,6 @@
 import "@/app/globals.css";
 
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
-
-import { inter } from "@/lib/fonts";
 
 import { siteConfig } from "../config/site";
 
@@ -15,24 +12,23 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
   keywords: [
-    "Landing page template",
-    "Components",
-    "Shadcn",
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Radix UI",
+    "态禾农业",
+    "水果种植",
+    "桃树种植",
+    "梨树种植",
+    "湖北农业",
+    "绿色食品",
   ],
   authors: [
     {
-      name: "Mikolaj Dobrucki",
-      url: "https://mikolajdobrucki.com",
+      name: "湖北态禾农业",
+      url: siteConfig.url,
     },
   ],
-  creator: "mikolajdobrucki",
+  creator: "湖北态禾农业",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "zh_CN",
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -51,10 +47,9 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@mikolajdobrucki",
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: "/icon.png",
     apple: "/apple-touch-icon.png",
   },
 };
@@ -65,21 +60,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="inline"
-      style={{ colorScheme: "dark" }}
-      suppressHydrationWarning
-    >
-      <body className={`${inter.variable} bg-background font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="inline"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+    <html lang="zh-CN">
+      <body className="bg-background font-sans antialiased">
+        {children}
       </body>
     </html>
   );

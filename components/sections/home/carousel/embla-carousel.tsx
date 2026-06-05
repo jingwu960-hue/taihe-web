@@ -7,7 +7,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import type { BannerItem } from '@/types';
 
-import { NextButton, PrevButton, usePrevNextButtons } from './arrow-buttons';
+import { usePrevNextButtons } from './arrow-buttons';
 import { AutoScroll, useAutoScroll } from './auto-scroll';
 
 type PropType = {
@@ -106,10 +106,10 @@ const EmblaCarousel: React.FC<PropType> = ({
                     sizes="100vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
-                  <div className="absolute inset-0 flex items-center">
-                    <div className="max-w-container mx-auto px-4 w-full">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="max-w-container mx-auto px-4 w-full flex items-center justify-center">
                       <div className="max-w-xl">
-                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                        <h1 className="text-3xl md:text-5xl font-bold text-white  mb-4">
                           {banner.title}
                         </h1>
                         <p className="text-lg md:text-xl text-white/90">

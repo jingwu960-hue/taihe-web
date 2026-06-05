@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUp, MessageSquare, Phone } from "lucide-react";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useCallback,useEffect, useRef, useState } from "react";
 
 import { siteConfig } from "@/config/site";
 

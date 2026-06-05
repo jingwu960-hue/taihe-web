@@ -1,11 +1,11 @@
 // 首页数据配置 - 类型已移至 types/ 目录
 import type {
+  AdvantageItem,
   BannerItem,
   BusinessItem,
-  ProductItem,
-  AdvantageItem,
   CaseItem,
   NewsItem,
+  ProductItem,
 } from '@/types';
 
 export const DEFAULT_PLACEHOLDER =

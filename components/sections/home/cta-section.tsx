@@ -23,10 +23,10 @@ export default function CtaSection() {
           无论您是批发商、商超还是政企客户，我们都能为您提供满意的解决方案
         </p>
         <div className="flex gap-4 justify-center flex-wrap">
-          <Button size="lg" variant="brand" asChild>
+          <Button size="lg" variant="default" asChild>
             <Link href="/contact">在线留言</Link>
           </Button>
-          <Button size="lg" variant="default" asChild className="border-white/50 text-white hover:bg-white/20">
+          <Button size="lg" variant="brand" asChild className="border-white/50 text-white hover:bg-white/20">
             <a href={`tel:${siteConfig.contact.phone}`}>电话咨询</a>
           </Button>
         </div>

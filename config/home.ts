@@ -47,8 +47,8 @@ export const businessData: BusinessItem[] = [
 
 export const productsData: ProductItem[] = [
   { name: "苏翠一号梨", description: "果肉细腻，汁多味甜，品质上乘", image: "/images/products/product-1.jpg", href: "/products/pear" },
-  { name: "金冠黄桃", description: "果香浓郁，酸甜适口，营养丰富", image: "/images/products/product-2.png", href: "/products/peach" },
-  { name: "新玉梨", description: "果皮细薄，果肉脆嫩，品质优良", image: "/images/products/product-3.png", href: "/products" },
+  { name: "金冠黄桃", description: "果香浓郁，酸甜适口，营养丰富", image: "/images/products/product-2.jpg", href: "/products/peach" },
+  { name: "新玉梨", description: "果皮细薄，果肉脆嫩，品质优良", image: "/images/products/product-3.jpg", href: "/products" },
   { name: "红九三红桃", description: "果形美观，色泽艳丽，香甜多汁", image: "/images/products/product-4.jpg", href: "/products" },
 ];
 

@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "态禾农业",
+  name: "湖北态禾农业股份有限公司",
   url: "https://taihe-agriculture.com",
   ogImage: "https://taihe-agriculture.com/og.jpg",
   description:

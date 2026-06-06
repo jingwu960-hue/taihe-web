@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -21,57 +22,66 @@ const categories = [
 const products = [
   {
     id: 1,
-    name: "黄金梨",
+    name: "苏翠一号梨",
     category: "pear",
     description: "果肉细腻，汁多味甜，品质上乘",
     price: "¥15/斤",
     isSeason: true,
-    emoji: "🍐",
+    image: "/images/products/product-1.jpg",
   },
   {
     id: 2,
-    name: "黄桃",
+    name: "新玉梨",
+    category: "pear",
+    description: "果皮细薄，果肉脆嫩，品质优良",
+    price: "¥18/斤",
+    isSeason: true,
+    image: "/images/products/product-3.jpg",
+  },
+  {
+    id: 3,
+    name: "其它品种梨",
+    category: "pear",
+    description: "多种优质梨品种，满足不同口味需求",
+    price: "¥16/斤",
+    isSeason: false,
+    image: "/images/products/product-1.jpg",
+  },
+  {
+    id: 4,
+    name: "金冠黄桃",
     category: "peach",
     description: "果香浓郁，酸甜适口，营养丰富",
     price: "¥20/斤",
     isSeason: true,
-    emoji: "🍑",
+    image: "/images/products/product-2.jpg",
   },
   {
-    id: 3,
-    name: "翠冠梨",
-    category: "pear",
-    description: "果皮细薄，果肉脆嫩，品质优良",
-    price: "¥18/斤",
-    isSeason: false,
-    emoji: "🍐",
-  },
-  {
-    id: 4,
-    name: "水蜜桃",
+    id: 5,
+    name: "胭脂红桃",
     category: "peach",
     description: "果形美观，色泽艳丽，香甜多汁",
     price: "¥22/斤",
     isSeason: true,
-    emoji: "🍑",
-  },
-  {
-    id: 5,
-    name: "水晶梨",
-    category: "pear",
-    description: "果水晶莹，肉质细腻，香甜可口",
-    price: "¥16/斤",
-    isSeason: false,
-    emoji: "🍐",
+    image: "/images/products/product-4.jpg",
   },
   {
     id: 6,
-    name: "油桃",
+    name: "红九三桃",
     category: "peach",
-    description: "果皮光滑，果肉脆嫩，酸甜适中",
-    price: "¥19/斤",
+    description: "果形美观，色泽艳丽，香甜多汁",
+    price: "¥21/斤",
     isSeason: true,
-    emoji: "🍑",
+    image: "/images/products/product-4.jpg",
+  },
+  {
+    id: 7,
+    name: "其它品种桃",
+    category: "peach",
+    description: "多种优质桃品种，满足不同口味需求",
+    price: "¥19/斤",
+    isSeason: false,
+    image: "/images/products/product-2.jpg",
   },
 ];
 
@@ -90,10 +100,10 @@ export default function Products() {
       <Navbar />
 
       {/* 页面头部 */}
-      <section className="py-20 bg-gradient-to-r from-primary/20 to-brand-foreground/20">
+      <section className="from-primary/20 to-brand-foreground/20 bg-gradient-to-r py-20">
         <div className="max-w-container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">产品中心</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="mb-4 text-4xl font-bold md:text-5xl">产品中心</h1>
+          <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
             精选优质水果，为您带来大自然的美味馈赠
           </p>
         </div>
@@ -102,11 +112,13 @@ export default function Products() {
       {/* 分类筛选 */}
       <section className="py-10">
         <div className="max-w-container mx-auto px-4">
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <Button
                 key={category.id}
-                variant={activeCategory === category.id ? "default" : "secondary"}
+                variant={
+                  activeCategory === category.id ? "default" : "secondary"
+                }
                 onClick={() => setActiveCategory(category.id)}
               >
                 {category.name}
@@ -119,29 +131,41 @@ export default function Products() {
       {/* 产品列表 */}
       <section className="py-10">
         <div className="max-w-container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filteredProducts.map((product) => (
-              <Link key={product.id} href={`/products/${product.category === 'pear' ? 'pear' : 'peach'}`}>
-                <Card className="h-full hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden">
-                  <div className="h-48 bg-gradient-to-br from-primary/20 to-brand-foreground/20 flex items-center justify-center">
-                    <div className="text-8xl">{product.emoji}</div>
+              <Link key={product.id} href={`/products/${product.category}`}>
+                <Card className="h-full overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
+                  <div className="relative h-64 overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-300 hover:scale-105"
+                    />
                   </div>
                   <CardContent className="p-6">
                     {product.isSeason && (
-                      <span className="inline-block px-3 py-1 bg-brand-foreground/20 text-brand-foreground text-xs font-medium rounded-full mb-2">
+                      <span className="bg-primary/20 text-primary mb-2 inline-block rounded-full px-3 py-1 text-xs font-medium">
                         当季新品
                       </span>
                     )}
-                    <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">{product.description}</p>
-                    <div className="text-lg font-bold text-primary">{product.price}</div>
+                    <h3 className="mb-2 text-xl font-semibold">
+                      {product.name}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 text-sm">
+                      {product.description}
+                    </p>
+                    <div className="text-primary text-lg font-bold">
+                      {product.price}
+                    </div>
                   </CardContent>
                 </Card>
               </Link>
             ))}
           </div>
           {filteredProducts.length === 0 && (
-            <div className="text-center py-20">
+            <div className="py-20 text-center">
               <p className="text-muted-foreground">暂无相关产品</p>
             </div>
           )}

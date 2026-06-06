@@ -13,6 +13,7 @@ import { Button, buttonVariants } from "../../ui/button";
 import {
   Navbar as NavbarComponent,
   NavbarLeft,
+  NavbarCenter,
   NavbarRight,
 } from "../../ui/navbar";
 import Navigation from "../../ui/navigation";
@@ -83,8 +84,10 @@ export default function Navbar({
               {logo}
               {name}
             </Link>
-            {showNavigation && (customNavigation || <Navigation />)}
           </NavbarLeft>
+          <NavbarCenter>
+            {showNavigation && (customNavigation || <Navigation />)}
+          </NavbarCenter>
           <NavbarRight>
             {actions.map((action) =>
               action.isButton ? (

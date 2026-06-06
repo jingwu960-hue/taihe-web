@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Footer from "@/components/sections/footer/default";
 import Navbar from "@/components/sections/navbar/default";
 import { Card, CardContent } from "@/components/ui/card";
@@ -67,8 +68,14 @@ export default function About() {
                 截至2026年，项目累计投资近4000万元，园区基础设施与产业体系已初具规模。当前，态禾园正处于由&quot;传统农业园区&quot;向&quot;农文旅融合示范区&quot;转型升级的关键阶段。
               </p>
             </div>
-            <div className="h-80 rounded-xl overflow-hidden">
-              <img src="/images/about/all.jpg" alt="态禾园全景" className="w-full h-full object-cover" />
+            <div className="relative h-80 rounded-xl overflow-hidden">
+              <Image
+                src="/images/about/all.jpg"
+                alt="态禾园全景"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

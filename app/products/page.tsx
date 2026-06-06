@@ -16,7 +16,7 @@ const categories = [
   { id: "all", name: "全部产品" },
   { id: "pear", name: "梨子系列" },
   { id: "peach", name: "桃子系列" },
-  { id: "season", name: "当季新品" },
+  // { id: "season", name: "当季新品" },
 ];
 
 const products = [
@@ -135,7 +135,7 @@ export default function Products() {
             {filteredProducts.map((product) => (
               <Link key={product.id} href={`/products/${product.category}`}>
                 <Card className="h-full overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative aspect-[5/3] overflow-hidden">
                     <Image
                       src={product.image}
                       alt={product.name}
@@ -145,20 +145,12 @@ export default function Products() {
                     />
                   </div>
                   <CardContent className="p-6">
-                    {product.isSeason && (
-                      <span className="bg-primary/20 text-primary mb-2 inline-block rounded-full px-3 py-1 text-xs font-medium">
-                        当季新品
-                      </span>
-                    )}
                     <h3 className="mb-2 text-xl font-semibold">
                       {product.name}
                     </h3>
-                    <p className="text-muted-foreground mb-4 text-sm">
+                    <p className="text-muted-foreground text-sm">
                       {product.description}
                     </p>
-                    <div className="text-primary text-lg font-bold">
-                      {product.price}
-                    </div>
                   </CardContent>
                 </Card>
               </Link>

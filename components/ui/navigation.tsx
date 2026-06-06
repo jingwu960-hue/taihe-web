@@ -23,7 +23,6 @@ export default function Navigation({
     { title: "关于我们", href: "/about" },
     { title: "产品中心", href: "/products" },
     { title: "基地展示", href: "/orchard" },
-    { title: "合作案例", href: "/cases" },
     { title: "新闻资讯", href: "/news" },
     { title: "招商合作", href: "/cooperation" },
     { title: "联系我们", href: "/contact" },

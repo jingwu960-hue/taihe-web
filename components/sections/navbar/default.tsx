@@ -53,7 +53,6 @@ export default function Navbar({
     { text: "关于我们", href: "/about" },
     { text: "产品中心", href: "/products" },
     { text: "基地展示", href: "/orchard" },
-    { text: "合作案例", href: "/cases" },
     { text: "新闻资讯", href: "/news" },
     { text: "招商合作", href: "/cooperation" },
     { text: "联系我们", href: "/contact" },

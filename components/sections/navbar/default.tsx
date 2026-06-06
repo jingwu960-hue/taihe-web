@@ -94,6 +94,7 @@ export default function Navbar({
                   key={`${action.href}-${action.text}`}
                   variant={action.variant || "default"}
                   asChild
+                  className="hidden md:flex"
                 >
                   <a href={action.href}>
                     {action.icon}

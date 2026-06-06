@@ -15,17 +15,17 @@ export const bannerData: BannerItem[] = [
   {
     title: "源头种植，品质可控",
     description: "湖北态禾农业专注桃树、梨树规模化种植，为您提供新鲜优质的水果",
-    image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1200&h=500&fit=crop",
+    image: "/images/banners/banner-1.jpg",
   },
   {
     title: "稳定供货，诚信经营",
     description: "拥有万亩种植基地，全年稳定供应，满足不同客户需求",
-    image: "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1200&h=500&fit=crop",
+    image: "/images/banners/banner-2.jpg",
   },
   {
     title: "科学种植，绿色健康",
     description: "采用先进种植技术，严格把控品质，让您吃得放心",
-    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&h=500&fit=crop",
+    image: "/images/banners/banner-3.jpg",
   },
 ];
 

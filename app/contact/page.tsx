@@ -18,6 +18,8 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [mapLoaded, setMapLoaded] = useState(false);
+  const [mapError, setMapError] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -142,12 +144,36 @@ export default function Contact() {
             {/* 地图/位置 */}
             <div>
               <h2 className="text-2xl font-bold mb-6">位置信息</h2>
-              <div className="h-80 bg-gradient-to-br from-primary/20 to-brand-foreground/20 rounded-lg flex items-center justify-center mb-6">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">🗺️</div>
-                  <p className="text-muted-foreground">地图位置展示</p>
+              <a
+                href="https://www.amap.com/search?query=湖北态禾农业股份有限公司&city=420922"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <div className="h-80 rounded-lg overflow-hidden mb-6 cursor-pointer hover:opacity-90 transition-opacity">
+                  {!mapError ? (
+                    <img
+                      src="https://restapi.amap.com/v3/staticmap?location=114.1078,31.3090&zoom=13&size=800*320&markers=large,0xFF0000,1:114.1078,31.3090&key=YOUR_AMAP_KEY"
+                      alt="公司位置地图"
+                      className={`w-full h-full object-cover ${mapLoaded ? "block" : "hidden"}`}
+                      onLoad={() => setMapLoaded(true)}
+                      onError={() => {
+                        setMapError(true);
+                        setMapLoaded(false);
+                      }}
+                    />
+                  ) : null}
+                  {(!mapLoaded || mapError) && (
+                    <div className="w-full h-full bg-gradient-to-br from-primary/20 to-brand-foreground/20 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-6xl mb-4">🗺️</div>
+                        <p className="text-muted-foreground">点击查看地图位置</p>
+                        <p className="text-sm text-primary mt-2">在高德地图中打开 →</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
+              </a>
               <div className="space-y-4">
                 <Card>
                   <CardContent className="p-6">

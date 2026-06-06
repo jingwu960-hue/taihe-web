@@ -19,13 +19,23 @@ export const bannerData: BannerItem[] = [
   },
   {
     title: "稳定供货，诚信经营",
-    description: "拥有万亩种植基地，全年稳定供应，满足不同客户需求",
+    description: "拥有千亩种植基地，全年稳定供应，满足不同客户需求",
     image: "/images/banners/banner-2.jpg",
   },
   {
     title: "科学种植，绿色健康",
     description: "采用先进种植技术，严格把控品质，让您吃得放心",
     image: "/images/banners/banner-3.jpg",
+  },
+  {
+    title: "生态果园，自然生长",
+    description: "遵循自然规律，采用有机种植方式，守护自然生态环境",
+    image: "/images/banners/banner-4.jpg",
+  },
+  {
+    title: "优质产品，客户信赖",
+    description: "多年积累良好口碑，产品深受广大客户喜爱和信任",
+    image: "/images/banners/banner-5.jpg",
   },
 ];
 
@@ -36,10 +46,10 @@ export const businessData: BusinessItem[] = [
 ];
 
 export const productsData: ProductItem[] = [
-  { name: "黄金梨", description: "果肉细腻，汁多味甜，品质上乘", image: "https://images.unsplash.com/photo-1568702846914-96b305d2784?w=400&h=300&fit=crop", href: "/products/pear" },
-  { name: "黄桃", description: "果香浓郁，酸甜适口，营养丰富", image: "https://images.unsplash.com/photo-1621262765575-483819752335?w=400&h=300&fit=crop", href: "/products/peach" },
-  { name: "翠冠梨", description: "果皮细薄，果肉脆嫩，品质优良", image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9df?w=400&h=300&fit=crop", href: "/products" },
-  { name: "水蜜桃", description: "果形美观，色泽艳丽，香甜多汁", image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=300&fit=crop", href: "/products" },
+  { name: "苏翠一号梨", description: "果肉细腻，汁多味甜，品质上乘", image: "/images/products/product-1.jpg", href: "/products/pear" },
+  { name: "金冠黄桃", description: "果香浓郁，酸甜适口，营养丰富", image: "/images/products/product-2.png", href: "/products/peach" },
+  { name: "新玉梨", description: "果皮细薄，果肉脆嫩，品质优良", image: "/images/products/product-3.png", href: "/products" },
+  { name: "红九三红桃", description: "果形美观，色泽艳丽，香甜多汁", image: "/images/products/product-4.jpg", href: "/products" },
 ];
 
 export const advantagesData: AdvantageItem[] = [

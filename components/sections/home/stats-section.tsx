@@ -17,7 +17,7 @@ export default function StatsSection() {
             <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
               <Counter target={parseInt(siteConfig.stats.plantingArea)} suffix="亩" />
             </div>
-            <p className="text-muted-foreground font-medium">种植面积</p>
+            <p className="text-muted-foreground font-medium">基地面积</p>
           </div>
           <div className="p-6 rounded-xl bg-white/70 backdrop-blur-sm hover:shadow-warm transition-all duration-300 hover:-translate-y-1">
             <div className="text-4xl md:text-5xl font-bold text-brand-foreground mb-2">

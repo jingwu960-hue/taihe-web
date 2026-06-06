@@ -34,7 +34,7 @@ const EmblaCarousel: React.FC<PropType> = ({
     playOnInit: true,
     stopOnInteraction: false,
     stopOnMouseEnter: true,
-    delay: 4000,
+    delay: 2000,
   },
 }) => {
   // 处理空数据边界条件

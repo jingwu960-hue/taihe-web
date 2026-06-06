@@ -18,6 +18,11 @@ export default function NewsSection({ data }: NewsSectionProps) {
     return null;
   }
 
+  const getCategoryIcon = (index: number) => {
+    const icons = ["📰", "📊", "🌱"];
+    return icons[index % icons.length];
+  };
+
   return (
     <section className="py-20">
       <div className="max-w-container mx-auto px-4">
@@ -28,11 +33,16 @@ export default function NewsSection({ data }: NewsSectionProps) {
         <div className="grid md:grid-cols-3 gap-8">
           {data.map((item, index) => (
             <Link key={index} href="/news">
-              <Card className="h-full" hoverable>
-                <CardContent className="p-8">
+              <Card className="h-full overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
+                <div className="h-40 bg-gradient-to-br from-primary/20 to-brand-foreground/20 flex items-center justify-center">
+                  <div className="text-5xl">
+                    {getCategoryIcon(index)}
+                  </div>
+                </div>
+                <CardContent className="p-6">
                   <div className="text-sm text-muted-foreground mb-3">{item.date}</div>
-                  <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.summary}</p>
+                  <h3 className="text-lg font-semibold mb-3 line-clamp-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm line-clamp-3">{item.summary}</p>
                 </CardContent>
               </Card>
             </Link>

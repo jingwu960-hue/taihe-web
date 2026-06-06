@@ -40,9 +40,9 @@ export const bannerData: BannerItem[] = [
 ];
 
 export const businessData: BusinessItem[] = [
-  { icon: "🌳", title: "桃树种植", description: "优质桃树种苗培育，规模化种植管理" },
-  { icon: "🍐", title: "梨树种植", description: "黄金梨、水晶梨等多品种培育" },
-  { icon: "📦", title: "水果销售", description: "批发、商超、政企采购多渠道服务" },
+  { icon: "🌳", title: "桃树种植", description: "金冠黄桃、红九三红桃等其它品种桃树种植" },
+  { icon: "🍐", title: "梨树种植", description: "苏翠一号梨、新玉梨等其它品种梨树种植" },
+  { icon: "📦", title: "水果销售", description: "批发、商超、政企采购，家庭采摘等多渠道服务" },
 ];
 
 export const productsData: ProductItem[] = [
@@ -55,13 +55,13 @@ export const productsData: ProductItem[] = [
 export const advantagesData: AdvantageItem[] = [
   { icon: "✅", title: "品质保证", description: "从种植到采摘层层筛选，严格把控" },
   { icon: "🚚", title: "新鲜直达", description: "采摘后24小时内发货，锁鲜保鲜" },
-  { icon: "🏆", title: "专业团队", description: "15年农业种植经验，技术过硬" },
+  { icon: "🏆", title: "专业团队", description: "50年农业种植经验，技术过硬" },
   { icon: "🤝", title: "合作共赢", description: "灵活的合作模式，与您携手共进" },
 ];
 
 export const casesData: CaseItem[] = [
   { name: "某大型商超", type: "商超合作", description: "连续3年稳定供应，品质获客户高度认可" },
-  { name: "某农产品批发商", type: "批发合作", description: "年采购量超500万斤，建立长期合作关系" },
+  { name: "某农产品批发商", type: "批发合作", description: "年采购量超100吨，建立长期合作关系" },
   { name: "某政府机关", type: "政企采购", description: "指定农产品供应商，服务保障到位" },
 ];
 

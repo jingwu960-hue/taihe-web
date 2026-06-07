@@ -33,7 +33,7 @@ export default function ProductsSection({ data }: ProductsSectionProps) {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {data.map((product, index) => (
-            <Link key={index} href={product.href}>
+            <Link key={index} href={`/products/${product.id}`}>
               <Card 
                 className="h-full group overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                 hoverable

@@ -178,19 +178,18 @@ export default function Contact() {
                 <Card>
                   <CardContent className="p-6">
                     <h3 className="font-semibold mb-2">工作时间</h3>
-                    <p className="text-muted-foreground text-sm">周一至周五: 9:00 - 18:00</p>
-                    <p className="text-muted-foreground text-sm">周六: 9:00 - 12:00</p>
-                    <p className="text-muted-foreground text-sm">周日: 休息</p>
+                    <p className="text-muted-foreground text-sm">周一至周五: 9:00 - 17:00</p>
+                    <p className="text-muted-foreground text-sm">周末: 休息</p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-6">
                     <h3 className="font-semibold mb-2">交通指引</h3>
                     <p className="text-muted-foreground text-sm">
-                      公交：乘坐X路、Y路公交车，农业产业园站下车即到
+                      高铁：孝感北站下车，距基地8公里。
                     </p>
                     <p className="text-muted-foreground text-sm">
-                      自驾：导航搜索&quot;态禾农业种植基地&quot;
+                      自驾：导航搜索&quot;湖北态禾农业股份有限公司&quot;
                     </p>
                   </CardContent>
                 </Card>

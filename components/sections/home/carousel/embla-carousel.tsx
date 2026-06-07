@@ -189,7 +189,7 @@ const EmblaCarousel: React.FC<PropType> = ({
         {/* 底部控制区域 */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6">
           {/* 播放/暂停按钮 - 只在客户端挂载后显示以避免 hydration 问题 */}
-          {hasMounted && !prefersReducedMotion && (
+          {/* {hasMounted && !prefersReducedMotion && (
             <button
               onClick={toggleAutoScroll}
               className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent flex items-center justify-center"
@@ -197,7 +197,7 @@ const EmblaCarousel: React.FC<PropType> = ({
             >
               {autoScrollIsPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
             </button>
-          )}
+          )} */}
           
           {/* 指示器 */}
           <div className="flex items-center gap-3" role="tablist" aria-label="轮播图导航">

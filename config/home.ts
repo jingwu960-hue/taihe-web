@@ -5,21 +5,20 @@ import type {
   BusinessItem,
   CaseItem,
   NewsItem,
-  ProductItem,
 } from '@/types';
 
 export const DEFAULT_PLACEHOLDER =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' viewBox='0 0 1200 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232E7D32;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23FF9800;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23g)'/%3E%3Ctext x='600' y='300' font-family='Arial' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3E态禾农业%3C/text%3E%3C/svg%3E";
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' viewBox='0 0 1200 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232E7D32;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23FF9800;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23g)'/%3E%3Ctext x='600' y='300' font-family='Arial' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3EXX农业%3C/text%3E%3C/svg%3E";
 
 export const bannerData: BannerItem[] = [
   {
     title: "源头种植，品质可控",
-    description: "湖北态禾农业专注桃树、梨树规模化种植，为您提供新鲜优质的水果",
+    description: "XX农业专注果树规模化种植，为您提供新鲜优质的水果",
     image: "/images/banners/banner-1.jpg",
   },
   {
     title: "稳定供货，诚信经营",
-    description: "拥有千亩种植基地，全年稳定供应，满足不同客户需求",
+    description: "拥有自主种植基地，全年稳定供应，满足不同客户需求",
     image: "/images/banners/banner-2.jpg",
   },
   {
@@ -39,17 +38,19 @@ export const bannerData: BannerItem[] = [
   },
 ];
 
+// 业务数据 - 可根据实际业务类型修改
 export const businessData: BusinessItem[] = [
   { icon: "🌳", title: "桃树种植", description: "金冠黄桃、红九三红桃等其它品种桃树种植" },
   { icon: "🍐", title: "梨树种植", description: "苏翠一号梨、新玉梨等其它品种梨树种植" },
   { icon: "📦", title: "水果销售", description: "批发、商超、政企采购，家庭采摘等多渠道服务" },
 ];
 
-export const productsData: ProductItem[] = [
-  { name: "苏翠一号梨", description: "果肉细腻，汁多味甜，品质上乘", image: "/images/products/product-1.jpg", href: "/products/pear" },
-  { name: "金冠黄桃", description: "果香浓郁，酸甜适口，营养丰富", image: "/images/products/product-2.jpg", href: "/products/peach" },
-  { name: "新玉梨", description: "果皮细薄，果肉脆嫩，品质优良", image: "/images/products/product-3.jpg", href: "/products" },
-  { name: "红九三红桃", description: "果形美观，色泽艳丽，香甜多汁", image: "/images/products/product-4.jpg", href: "/products" },
+// 产品数据 - 以下为示例，可根据实际产品替换
+export const productsData = [
+  { name: "苏翠一号梨", description: "果肉细腻，汁多味甜，品质上乘", image: "/images/products/product-1.jpg" },
+  { name: "金冠黄桃", description: "果香浓郁，酸甜适口，营养丰富", image: "/images/products/product-2.jpg" },
+  { name: "新玉梨", description: "果皮细薄，果肉脆嫩，品质优良", image: "/images/products/product-3.jpg" },
+  { name: "红九三红桃", description: "果形美观，色泽艳丽，香甜多汁", image: "/images/products/product-4.jpg" },
 ];
 
 export const advantagesData: AdvantageItem[] = [
@@ -66,7 +67,7 @@ export const casesData: CaseItem[] = [
 ];
 
 export const newsData: NewsItem[] = [
-  { title: "态禾园2026年完成关键升级 打造观景平台与露营基地", date: "2026-06-06", summary: "2026年，园区完成关键升级，重点打造两大核心项目：观景平台依托山地制高点布局，可全景俯瞰梯田果园；露营基地融入自然生态环境，满足城市客群对\"轻度假、慢生活\"的多元需求。" },
-  { title: "态禾农业累计投资近4000万元 园区初具规模", date: "2026-05-20", summary: "截至2026年，态禾园田园综合体项目累计投资近4000万元，园区基础设施与产业体系已初具规模，正处于由\"传统农业园区\"向\"农文旅融合示范区\"转型升级的关键阶段。" },
-  { title: "态禾农业累计带动3000余户农户增收致富", date: "2026-04-15", summary: "公司坚持产业发展与社会责任协同推进，累计带动周边3000余户农户参与产业发展，提供就业岗位300余个，促进农民年均增收约2.5万元，助力乡村振兴与区域经济发展。" },
+  { title: "XX生态园2026年完成关键升级 打造观景平台与露营基地", date: "2026-06-06", summary: "2026年，园区完成关键升级，重点打造两大核心项目：观景平台依托山地制高点布局，可全景俯瞰梯田果园；露营基地融入自然生态环境，满足城市客群对\"轻度假、慢生活\"的多元需求。" },
+  { title: "XX农业累计投资近4000万元 园区初具规模", date: "2026-05-20", summary: "截至2026年，XX生态园田园综合体项目累计投资近4000万元，园区基础设施与产业体系已初具规模，正处于由\"传统农业园区\"向\"农文旅融合示范区\"转型升级的关键阶段。" },
+  { title: "XX农业累计带动3000余户农户增收致富", date: "2026-04-15", summary: "公司坚持产业发展与社会责任协同推进，累计带动周边3000余户农户参与产业发展，提供就业岗位300余个，促进农民年均增收约2.5万元，助力乡村振兴与区域经济发展。" },
 ];

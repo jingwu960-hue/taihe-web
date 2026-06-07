@@ -7,8 +7,8 @@ function Card({ className, hoverable = false, ...props }: React.ComponentProps<"
     <div
       data-slot="card"
       className={cn(
-        "bg-card text-card-foreground rounded-xl border border-border shadow-sm transition-all duration-300",
-        hoverable && "hover:shadow-md hover:border-primary/30 hover:shadow-brand hover:-translate-y-1",
+        "bg-card text-card-foreground rounded-xl border border-border shadow-sm transition-transform transition-shadow duration-200 ease-out",
+        hoverable && "hover-card active:scale-[0.98] cursor-pointer",
         className,
       )}
       {...props}

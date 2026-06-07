@@ -4,10 +4,11 @@ import { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import Image from 'next/image';
 import React, { useCallback, useEffect, useState } from 'react';
+import { Play, Pause } from 'lucide-react';
 
 import type { BannerItem } from '@/types';
 
-import { usePrevNextButtons } from './arrow-buttons';
+import { usePrevNextButtons, PrevButton, NextButton } from './arrow-buttons';
 import { AutoScroll, useAutoScroll } from './auto-scroll';
 
 type PropType = {
@@ -37,6 +38,21 @@ const EmblaCarousel: React.FC<PropType> = ({
     delay: 2000,
   },
 }) => {
+  // 检查是否需要减少动画 - 使用 useState 和 useEffect 来避免 SSR 问题
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
   // 处理空数据边界条件
   if (!banners || banners.length === 0) {
     return (
@@ -48,8 +64,13 @@ const EmblaCarousel: React.FC<PropType> = ({
     );
   }
 
+  // 如果用户 prefers reduced motion，禁用自动播放
+  const adjustedAutoplayOptions = hasMounted && prefersReducedMotion 
+    ? { ...autoplayOptions, playOnInit: false }
+    : autoplayOptions;
+
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    AutoScroll(autoplayOptions),
+    AutoScroll(adjustedAutoplayOptions),
   ]);
 
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
@@ -82,6 +103,19 @@ const EmblaCarousel: React.FC<PropType> = ({
     };
   }, [emblaApi, onSelect]);
 
+  // 添加键盘导航支持
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (!emblaApi) return;
+    
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      onAutoScrollButtonClick(onPrevButtonClick);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      onAutoScrollButtonClick(onNextButtonClick);
+    }
+  }, [emblaApi, onPrevButtonClick, onNextButtonClick, onAutoScrollButtonClick]);
+
   const handleImageError = (
     e: React.SyntheticEvent<HTMLImageElement, Event>
   ) => {
@@ -89,12 +123,24 @@ const EmblaCarousel: React.FC<PropType> = ({
   };
 
   return (
-    <section className="relative w-full overflow-hidden">
+    <section 
+      className="relative w-full overflow-hidden"
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      aria-roledescription="轮播图"
+      aria-label="公司宣传轮播图"
+    >
       <div className="relative">
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div className="overflow-hidden" ref={emblaRef} role="list">
           <div className="flex touch-pan-y pinch-zoom">
             {banners.map((banner, index) => (
-              <div className="relative flex-[0_0_100%] min-w-0" key={index}>
+              <div 
+                className="relative flex-[0_0_100%] min-w-0" 
+                key={index}
+                role="listitem"
+                aria-roledescription="幻灯片"
+                aria-label={`第 ${index + 1} 张，共 ${banners.length} 张`}
+              >
                 <div className="relative h-[400px] md:h-[500px] w-full">
                   <Image
                     src={banner.image}
@@ -109,7 +155,7 @@ const EmblaCarousel: React.FC<PropType> = ({
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="max-w-container mx-auto px-4 w-full flex items-center justify-center">
                       <div className="max-w-xl">
-                        <h1 className="text-3xl md:text-5xl font-bold text-white  mb-4">
+                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
                           {banner.title}
                         </h1>
                         <p className="text-lg md:text-xl text-white/90">
@@ -125,60 +171,60 @@ const EmblaCarousel: React.FC<PropType> = ({
         </div>
 
         {/* 左侧箭头按钮 */}
-        {/* <button
+        <PrevButton
           onClick={() => onAutoScrollButtonClick(onPrevButtonClick)}
           disabled={prevBtnDisabled}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg hover:bg-white/20 hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10"
           aria-label="上一张轮播图"
-        >
-          <svg className="w-6 h-6" viewBox="0 0 532 532">
-            <path
-              fill="currentColor"
-              d="M355.66 11.354c13.793-13.805 36.208-13.805 50.001 0 13.785 13.804 13.785 36.238 0 50.034L201.22 266l204.442 204.61c13.785 13.805 13.785 36.239 0 50.044-13.793 13.796-36.208 13.796-50.002 0a5994246.277 5994246.277 0 0 0-229.332-229.454 35.065 35.065 0 0 1-10.326-25.126c0-9.2 3.393-18.26 10.326-25.2C172.192 194.973 332.731 34.31 355.66 11.354Z"
-            />
-          </svg>
-        </button> */}
+        />
 
         {/* 右侧箭头按钮 */}
-        {/* <button
+        <NextButton
           onClick={() => onAutoScrollButtonClick(onNextButtonClick)}
           disabled={nextBtnDisabled}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg hover:bg-white/20 hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10"
           aria-label="下一张轮播图"
-        >
-          <svg className="w-6 h-6" viewBox="0 0 532 532">
-            <path
-              fill="currentColor"
-              d="M176.34 520.646c-13.793 13.805-36.208 13.805-50.001 0-13.785-13.804-13.785-36.238 0-50.034L330.78 266 126.34 61.391c-13.785-13.805-13.785-36.239 0-50.044 13.793-13.796 36.208-13.796 50.002 0 22.928 22.947 206.395 206.507 229.332 229.454 35.065 35.065 0 0 1 10.326 25.126c0 9.2-3.393 18.26-10.326 25.2-45.865 45.901-206.404 206.564-229.332 229.52Z"
-            />
-          </svg>
-        </button> */}
+        />
 
-        {/* 底部指示器 */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3" role="tablist" aria-label="轮播图导航">
-          {scrollSnaps.map((_, index) => (
+        {/* 底部控制区域 */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6">
+          {/* 播放/暂停按钮 - 只在客户端挂载后显示以避免 hydration 问题 */}
+          {hasMounted && !prefersReducedMotion && (
             <button
-              key={index}
-              onClick={() => {
-                onAutoScrollButtonClick(() => emblaApi?.scrollTo(index));
-              }}
-              className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent ${
-                selectedIndex === index
-                  ? 'bg-white w-8 scale-100'
-                  : 'bg-white/40 hover:bg-white/70 hover:scale-110'
-              }`}
-              aria-label={`跳转到第 ${index + 1} 张轮播图`}
-              aria-selected={selectedIndex === index}
-              role="tab"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
+              onClick={toggleAutoScroll}
+              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent flex items-center justify-center"
+              aria-label={autoScrollIsPlaying ? "暂停轮播" : "播放轮播"}
+            >
+              {autoScrollIsPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+            </button>
+          )}
+          
+          {/* 指示器 */}
+          <div className="flex items-center gap-3" role="tablist" aria-label="轮播图导航">
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
                   onAutoScrollButtonClick(() => emblaApi?.scrollTo(index));
-                }
-              }}
-            />
-          ))}
+                }}
+                className={`w-3 h-3 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent cursor-pointer carousel-dot ${
+                  selectedIndex === index
+                    ? "bg-white w-8 scale-100"
+                    : "bg-white/40"
+                }`}
+                aria-label={`跳转到第 ${index + 1} 张轮播图`}
+                aria-selected={selectedIndex === index}
+                role="tab"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onAutoScrollButtonClick(() => emblaApi?.scrollTo(index));
+                  }
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

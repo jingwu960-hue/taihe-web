@@ -1,25 +1,22 @@
-"use client";
-
+import { ChevronRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import type { ProductItem } from "@/types";
-import Image from "next/image";
-import { ChevronRight } from "lucide-react";
+
+interface ProductItem {
+  name: string;
+  description: string;
+  image: string;
+  href?: string;
+}
 
 interface ProductsSectionProps {
   data: ProductItem[];
 }
 
-/**
- * 核心产品展示组件
- * 展示公司的主要产品
- */
 export default function ProductsSection({ data }: ProductsSectionProps) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   if (!data || data.length === 0) {
     return null;
   }
@@ -33,33 +30,29 @@ export default function ProductsSection({ data }: ProductsSectionProps) {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {data.map((product, index) => (
-            <Link key={index} href={`/products/${product.id}`}>
+            <Link key={index} href={product.href || `/products/${index}`}>
               <Card 
-                className="h-full group overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                className="h-full overflow-hidden transition-all duration-200 hover:shadow-xl"
                 hoverable
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div className="h-64 bg-gradient-to-br from-primary/20 to-brand-foreground/20 relative overflow-hidden">
                   <Image
                     alt={product.name}
                     src={product.image}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
                     priority={index === 0}
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
-                  {hoveredIndex === index && (
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300">
-                      <span className="text-white font-medium flex items-center gap-1">
-                        查看详情
-                        <ChevronRight className="w-4 h-4" />
-                      </span>
-                    </div>
-                  )}
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-200 opacity-0 group-hover:opacity-100">
+                    <span className="text-white font-medium flex items-center gap-1">
+                      查看详情
+                      <ChevronRight className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold mb-2 transition-colors duration-300 group-hover:text-primary">
+                  <h3 className="text-lg font-semibold mb-2 transition-colors duration-200 group-hover:text-primary">
                     {product.name}
                   </h3>
                   <p className="text-muted-foreground text-sm line-clamp-2">
@@ -74,7 +67,7 @@ export default function ProductsSection({ data }: ProductsSectionProps) {
           <Button asChild className="group">
             <Link href="/products" className="flex items-center gap-2">
               查看全部产品
-              <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           </Button>
         </div>

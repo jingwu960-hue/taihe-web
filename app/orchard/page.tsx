@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import Footer from "@/components/sections/footer/default";
 import Navbar from "@/components/sections/navbar/default";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,22 +8,22 @@ import { LayoutLines } from "@/components/ui/layout-lines";
 
 // 园区概况数据
 const baseInfo = [
-  { title: "总占地面积", value: "1200亩", icon: "🌾" },
-  { title: "精品水果种植", value: "852.3亩", icon: "🍎" },
-  { title: "水产养殖区", value: "100亩", icon: "🐟" },
-  { title: "累计投资", value: "近4000万", icon: "💰" },
+  { title: "总占地面积", value: "[XX亩]", icon: "🌾" },
+  { title: "精品水果种植", value: "[XX亩]", icon: "🍎" },
+  { title: "水产养殖区", value: "[XX亩]", icon: "🐟" },
+  { title: "累计投资", value: "[XX万]", icon: "💰" },
 ];
 
 // 农文旅项目数据
 const agroTourismProjects = [
   {
     title: "水果采摘",
-    description: "提供红桃、黄桃、梨、樱桃等多种水果的采摘体验，让游客感受丰收的喜悦",
+    description: "提供多种水果的采摘体验，让游客感受丰收的喜悦",
     icon: "🍇"
   },
   {
     title: "休闲垂钓",
-    description: "生态水产养殖区，投放鲤鱼、草鱼、鲫鱼、武昌鱼、胖头鱼等，享受垂钓乐趣",
+    description: "生态水产养殖区，投放多种鱼类，享受垂钓乐趣",
     icon: "🎣"
   },
   {
@@ -58,7 +59,7 @@ const certificates = [
   { name: "新四板挂牌", icon: "🏦", year: "2020" },
   { name: "省级农业产业化重点龙头企业", icon: "🏆", year: "2021" },
   { name: "绿色食品认证", icon: "🥇", year: "认证中" },
-  { name: "态禾秋实品牌商标", icon: "®", year: "已注册" },
+  { name: "[公司品牌商标]", icon: "®", year: "已注册" },
 ];
 
 // 发展战略数据
@@ -98,7 +99,7 @@ export default function Orchard() {
       {/* 页面头部 */}
       <section className="py-20 bg-gradient-to-r from-primary/20 to-brand-foreground/20">
         <div className="max-w-container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">态禾园田园综合体</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">[园区名称]</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             集生态种植、休闲观光、乡村度假、农旅体验于一体的综合性田园综合体
           </p>
@@ -112,7 +113,7 @@ export default function Orchard() {
             <div className="relative h-80 rounded-xl overflow-hidden">
               <Image
                 src="/images/about/all.jpg"
-                alt="态禾园全景"
+                alt="园区全景"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -121,10 +122,10 @@ export default function Orchard() {
             <div>
               <h2 className="text-3xl font-bold mb-6">园区概况</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                态禾园依山而建、顺势铺展，整体呈现层次分明的山地梯田果园景观。从空中俯瞰，果树连片成景、道路纵横成网、水系自然点缀，规模化、标准化与景观化融合发展的现代农业格局已基本形成。
+                [园区名称]依山而建、顺势铺展，整体呈现层次分明的山地梯田果园景观。从空中俯瞰，果树连片成景、道路纵横成网、水系自然点缀，规模化、标准化与景观化融合发展的现代农业格局已基本形成。
               </p>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                园区总占地约1200亩，其中精品水果种植面积852.3亩，主要种植红桃、黄桃、苏翠1号梨、新玉蜜梨、樱桃等优质果品；配套建设生态水产养殖区100亩，投放鲤鱼、草鱼、鲫鱼、武昌鱼、胖头鱼等，逐步构建起“种养结合、循环发展”的生态农业体系。
+                园区总占地约[XX亩]，其中精品水果种植面积[XX亩]，主要种植[主要品种]等优质果品；配套建设生态水产养殖区[XX亩]，投放[主要品种]等，逐步构建起"种养结合、循环发展"的生态农业体系。
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {baseInfo.map((info, index) => (
@@ -148,7 +149,7 @@ export default function Orchard() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">农文旅融合发展</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              在夯实农业产业基础的同时，态禾园持续延伸农业价值链条，构建“可观赏、可参与、可体验、可消费”的农文旅一体化运营体系
+              在夯实农业产业基础的同时，公司持续延伸农业价值链条，构建“可观赏、可参与、可体验、可消费”的农文旅一体化运营体系
             </p>
           </div>
           
@@ -287,7 +288,7 @@ export default function Orchard() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">发展战略</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              态禾园田园综合体项目按照“三步走”战略稳步推进
+              [项目名称]按照“三步走”战略稳步推进
             </p>
           </div>
           <div className="space-y-6">

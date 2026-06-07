@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-export default function TaiheLogo({
-
+// 公司Logo组件 - 替换 src="/icon.png" 为您的实际logo图片路径
+export default function CompanyLogo({
   className,
   size = 32,
 }: {
@@ -11,7 +11,7 @@ export default function TaiheLogo({
   return (
     <Image
       src="/icon.png"
-      alt="态禾农业Logo"
+      alt="公司Logo"
       width={size}
       height={size}
       className={className}

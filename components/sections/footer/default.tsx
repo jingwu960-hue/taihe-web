@@ -5,7 +5,7 @@ import { useState } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import TaiheLogo from "../../logos/taihe";
+import CompanyLogo from "../../logos/taihe";
 import { Button } from "../../ui/button";
 import {
   Dialog,
@@ -24,7 +24,7 @@ import {
 const policyContent: Record<string, { title: string; content: string }> = {
   privacy: {
     title: "隐私政策",
-    content: `湖北态禾农业股份有限公司（以下简称"我们"）高度重视用户的隐私保护。本隐私政策旨在帮助您了解我们如何收集、使用、存储和保护您的个人信息。
+    content: `[公司名称]（以下简称"我们"）高度重视用户的隐私保护。本隐私政策旨在帮助您了解我们如何收集、使用、存储和保护您的个人信息。
 
 一、信息收集
 我们可能收集以下类型的信息：
@@ -70,7 +70,7 @@ const policyContent: Record<string, { title: string; content: string }> = {
   },
   terms: {
     title: "使用条款",
-    content: `欢迎使用湖北态禾农业股份有限公司（以下简称"我们"或"公司"）提供的网站及相关服务。请您仔细阅读以下使用条款。
+    content: `欢迎使用[公司名称]（以下简称"我们"或"公司"）提供的网站及相关服务。请您仔细阅读以下使用条款。
 
 一、服务说明
 1. 我们通过网站提供农业产品信息展示、在线咨询、采购意向提交等服务。
@@ -114,7 +114,7 @@ const policyContent: Record<string, { title: string; content: string }> = {
 因本条款引起的或与本条款有关的任何争议，双方应友好协商解决；协商不成的，任何一方均可向公司所在地有管辖权的人民法院提起诉讼。
 
 十、其他
-1. 本条款的解释权归湖北态禾农业股份有限公司所有。
+1. 本条款的解释权归[公司名称]所有。
 2. 本条款自您在网站使用我们服务之日起生效。
 
 更新日期：2026年6月7日`,
@@ -141,7 +141,7 @@ interface FooterProps {
 }
 
 export default function FooterSection({
-  logo = <TaiheLogo />,
+  logo = <CompanyLogo />,
   name = siteConfig.name,
   columns = [
     {
@@ -163,7 +163,7 @@ export default function FooterSection({
       ],
     },
   ],
-  copyright = "©2026湖北态禾农业股份有限公司. 保留所有权利.",
+  copyright = "©2026[公司名称]. 保留所有权利.",
   policies = [
     { text: "隐私政策", href: "#privacy" },
     { text: "使用条款", href: "#terms" },
@@ -197,7 +197,7 @@ export default function FooterSection({
                 <h3 className="text-xl font-bold text-foreground">{name}</h3>
               </div>
               <p className="text-muted-foreground mb-6 max-w-sm">
-                湖北态禾农业专注桃树、梨树规模化种植，源头种植，品质可控，稳定供货，诚信经营。
+                [公司名称]专注[核心业务]规模化种植/生产，源头把控，品质可靠，稳定供货，诚信经营。
               </p>
               
               {/* 联系方式 */}

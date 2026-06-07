@@ -1,5 +1,6 @@
 /**
- * 态禾农业首页 - 测试版4：添加所有组件
+ * 首页 - 农业公司网站模板
+ * 使用说明：此模板可自定义为任何农业公司网站
  */
 import Footer from "@/components/sections/footer/default";
 import AdvantagesSection from "@/components/sections/home/advantages-section";

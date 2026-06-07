@@ -25,7 +25,7 @@ export default function CasesSection({ data }: CasesSectionProps) {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {data.map((item, index) => (
-            <Card key={index} hoverable>
+            <Card key={index} hoverable className="active:scale-[0.98]">
               <CardContent className="p-8">
                 <div className="text-sm text-primary font-medium mb-2">{item.type}</div>
                 <h3 className="text-xl font-semibold mb-3">{item.name}</h3>

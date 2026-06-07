@@ -8,12 +8,12 @@ import { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import TaiheLogo from "../../logos/taihe";
+import CompanyLogo from "../../logos/taihe";
 import { Button, buttonVariants } from "../../ui/button";
 import {
   Navbar as NavbarComponent,
-  NavbarLeft,
   NavbarCenter,
+  NavbarLeft,
   NavbarRight,
 } from "../../ui/navbar";
 import Navigation from "../../ui/navigation";
@@ -45,8 +45,8 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = <TaiheLogo />,
-  name = "湖北态禾农业",
+  logo = <CompanyLogo />,
+  name = "[公司名称]",
   homeUrl = "/",
   mobileLinks = [
     { text: "首页", href: "/" },

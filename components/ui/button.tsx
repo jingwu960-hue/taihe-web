@@ -5,30 +5,30 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transition-transform duration-160 ease-out",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 active:bg-primary/80 hover:shadow-md hover:scale-[1.02] active:scale-[0.98]",
+          "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-md hover:scale-[1.02] active:scale-[0.97]",
         brand:
-          "bg-brand-foreground text-white shadow-sm hover:bg-brand-foreground/90 active:bg-brand-foreground/80 hover:shadow-md hover:scale-[1.02] active:scale-[0.98]",
+          "bg-brand-foreground text-white shadow-sm hover:bg-brand-foreground/90 hover:shadow-md hover:scale-[1.02] active:scale-[0.97]",
         sweet:
-          "bg-brand-accent text-white shadow-sm hover:bg-brand-accent/90 active:bg-brand-accent/80 hover:shadow-warm hover:scale-[1.02] active:scale-[0.98]",
+          "bg-brand-accent text-white shadow-sm hover:bg-brand-accent/90 active:scale-[0.97]",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 active:scale-[0.97]",
         outline:
-          "border-2 border-primary/30 bg-background text-primary shadow-sm hover:bg-primary/10 hover:border-primary hover:text-primary",
+          "border-2 border-primary/30 bg-background text-primary shadow-sm hover:bg-primary/10 hover:border-primary hover:text-primary active:scale-[0.97]",
         outlineBrand:
-          "border-2 border-brand-foreground/30 bg-background text-brand-foreground shadow-sm hover:bg-brand-foreground/10 hover:border-brand-foreground",
+          "border-2 border-brand-foreground/30 bg-background text-brand-foreground shadow-sm hover:bg-brand-foreground/10 hover:border-brand-foreground active:scale-[0.97]",
         outlineSweet:
-          "border-2 border-brand-accent/30 bg-background text-brand-accent shadow-sm hover:bg-brand-accent/10 hover:border-brand-accent",
-        glow: "glass-4 hover:glass-5 shadow-md hover:shadow-lg",
+          "border-2 border-brand-accent/30 bg-background text-brand-accent shadow-sm hover:bg-brand-accent/10 hover:border-brand-accent active:scale-[0.97]",
+        glow: "glass-4 hover:glass-5 shadow-md hover:shadow-lg active:scale-[0.97]",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-primary/10 hover:text-primary",
-        ghostSweet: "hover:bg-brand-accent/10 hover:text-brand-accent",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 active:scale-[0.97]",
+        ghost: "hover:bg-primary/10 hover:text-primary active:scale-[0.97]",
+        ghostSweet: "hover:bg-brand-accent/10 hover:text-brand-accent active:scale-[0.97]",
+        link: "text-primary underline-offset-4 hover:underline active:scale-[0.97]",
       },
       size: {
         default: "h-10 px-5 py-2",

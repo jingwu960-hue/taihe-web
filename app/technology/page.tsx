@@ -11,7 +11,7 @@ export default function Technology() {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">种植技术</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            态禾农业采用先进的种植技术，确保水果的品质和产量
+            我们采用先进的种植技术，确保水果的品质和产量
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-8">

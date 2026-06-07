@@ -17,7 +17,6 @@ interface NavigationProps {
 }
 
 export default function Navigation({
-
   items = [
     { title: "首页", href: "/" },
     { title: "关于我们", href: "/about" },
@@ -39,11 +38,12 @@ export default function Navigation({
           <Link
             key={item.href}
             href={item.href}
+            aria-current={isActive ? "page" : undefined}
             className={cn(
-              "px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 relative",
+              "px-4 py-2 text-sm font-medium rounded-md transition-colors duration-150 relative hover-nav",
               isActive
                 ? "text-primary bg-primary/5"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted",
+                : "text-muted-foreground",
             )}
           >
             {item.title}

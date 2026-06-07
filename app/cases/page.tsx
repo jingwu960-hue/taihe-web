@@ -86,7 +86,7 @@ export default function Cases() {
         <div className="max-w-container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">合作案例</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            看看我们的合作伙伴如何评价态禾农业
+            看看我们的合作伙伴如何评价[公司名称]
           </p>
         </div>
       </section>
@@ -150,7 +150,7 @@ export default function Cases() {
         <div className="max-w-container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">想要成为我们的合作伙伴？</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            态禾农业期待与您建立长期稳定的合作关系，共同发展，共创未来
+            [公司名称]期待与您建立长期稳定的合作关系，共同发展，共创未来
           </p>
           <Button size="lg" asChild>
             <a href="/cooperation">了解合作模式</a>

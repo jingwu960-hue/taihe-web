@@ -1,39 +1,40 @@
 import Image from "next/image";
+
 import Footer from "@/components/sections/footer/default";
 import Navbar from "@/components/sections/navbar/default";
 import { Card, CardContent } from "@/components/ui/card";
 import { FloatingContact } from "@/components/ui/floating-contact";
 import { LayoutLines } from "@/components/ui/layout-lines";
 
-// 模拟数据
+// 示例数据 - 请根据实际情况修改
 const timelineData = [
   {
     year: "2018",
     title: "公司成立",
-    description: "湖北态禾农业股份有限公司正式成立，位于湖北省孝感市大悟县城关镇中心村，法定代表人胡东明",
+    description: "[公司名称]正式成立，位于[公司地址]，法定代表人[姓名]",
   },
   {
     year: "2020",
-    title: "新四板挂牌",
-    description: "12月在新四板成功挂牌，企业发展迈入新阶段",
+    title: "企业发展里程碑",
+    description: "[描述重要里程碑事件，如成功挂牌、融资等]",
   },
   {
     year: "2021",
-    title: "省级龙头企业",
-    description: "被认定为省级农业产业化重点龙头企业",
+    title: "获得行业认可",
+    description: "[描述获得的资质或荣誉]",
   },
   {
     year: "2026",
-    title: "农文旅全面升级",
-    description: "完成关键升级，打造观景平台和露营基地两大核心项目，向农文旅融合示范区转型升级",
+    title: "业务全面升级",
+    description: "完成关键升级，打造核心项目，向新业务模式转型升级",
   },
 ];
 
 const certificatesData = [
-  { name: "新四板挂牌", icon: "🏦" },
-  { name: "省级农业产业化重点龙头企业", icon: "🏆" },
+  { name: "行业资质认证", icon: "🏦" },
+  { name: "农业产业化重点企业", icon: "🏆" },
   { name: "绿色食品认证", icon: "🥇" },
-  { name: "态禾秋实品牌商标", icon: "®" },
+  { name: "品牌商标注册", icon: "®" },
 ];
 
 export default function About() {
@@ -47,7 +48,7 @@ export default function About() {
         <div className="max-w-container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">关于我们</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            了解态禾农业的发展历程、企业理念和核心优势
+            了解我们公司发展历程、企业理念和核心优势
           </p>
         </div>
       </section>
@@ -59,19 +60,19 @@ export default function About() {
             <div>
               <h2 className="text-3xl font-bold mb-6">企业简介</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                湖北态禾农业股份有限公司成立于2018年1月，位于湖北省孝感市大悟县城关镇中心村，法定代表人胡东明。
+                [公司名称]成立于[年份]，位于[公司地址]。
               </p>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                公司深耕现代生态农业，以农文旅深度融合为核心发展路径，致力于将态禾园打造成为集生态种植、休闲观光、乡村度假、农旅体验于一体的综合性田园综合体，探索农业产业价值跃升的实践路径。
+                公司深耕现代生态农业，以[核心业务方向]为核心发展路径，致力于将[园区/基地名称]打造成为集[业务模块1]、[业务模块2]、[业务模块3]于一体的综合性产业平台，探索产业价值跃升的实践路径。
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                截至2026年，项目累计投资近4000万元，园区基础设施与产业体系已初具规模。当前，态禾园正处于由&quot;传统农业园区&quot;向&quot;农文旅融合示范区&quot;转型升级的关键阶段。
+                截至[年份]，项目累计投资[金额]，基础设施与产业体系已初具规模。当前，公司正处于由[传统模式]向[新模式]转型升级的关键阶段。
               </p>
             </div>
             <div className="relative h-80 rounded-xl overflow-hidden">
               <Image
                 src="/images/about/all.jpg"
-                alt="态禾园全景"
+                alt="园区全景"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -92,16 +93,16 @@ export default function About() {
               <CardContent className="p-8">
                 <div className="text-5xl mb-4">🌳</div>
                 <h3 className="text-xl font-semibold mb-3">园区规模</h3>
-                <p className="text-muted-foreground mb-4">园区总占地约1200亩，其中精品水果种植面积852.3亩，主要种植红桃、黄桃、苏翠1号梨、新玉蜜梨、樱桃等优质果品。</p>
-                <p className="text-muted-foreground">配套建设生态水产养殖区100亩，投放鲤鱼、草鱼、鲫鱼、武昌鱼、胖头鱼等，逐步构建起&quot;种养结合、循环发展&quot;的生态农业体系。</p>
+                <p className="text-muted-foreground mb-4">[园区名称]总占地约[面积]亩，其中[主要种植/业务内容][面积]亩，主要种植[产品列表]等优质产品。</p>
+                <p className="text-muted-foreground">配套建设[配套设施名称][面积]亩，投放/种植[产品列表]，逐步构建起&quot;种养结合、循环发展&quot;的生态农业体系。</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-8">
                 <div className="text-5xl mb-4">🏞️</div>
                 <h3 className="text-xl font-semibold mb-3">景观特色</h3>
-                <p className="text-muted-foreground mb-4">态禾园依山而建、顺势铺展，整体呈现层次分明的山地梯田果园景观。</p>
-                <p className="text-muted-foreground">从空中俯瞰，果树连⽚成景、道路纵横成⽹、⽔系自然点缀，规模化、标准化与景观化融合发展的现代农业格局已基本形成。</p>
+                <p className="text-muted-foreground mb-4">[园区名称]依山而建、顺势铺展，整体呈现层次分明的景观特色。</p>
+                <p className="text-muted-foreground">从空中俯瞰，规模化、标准化与景观化融合发展的现代农业格局已基本形成。</p>
               </CardContent>
             </Card>
           </div>
@@ -148,7 +149,7 @@ export default function About() {
               <CardContent className="p-8">
                 <div className="text-5xl mb-4">🔭</div>
                 <h3 className="text-xl font-semibold mb-3">观景平台</h3>
-                <p className="text-muted-foreground">依托山体制高点布局，视野开阔，可全景俯瞰梯田果园，成为园区标志性景观与核心打卡地。</p>
+                <p className="text-muted-foreground">依托园区制高点布局，视野开阔，可全景俯瞰园区，成为标志性景观与核心打卡地。</p>
               </CardContent>
             </Card>
             <Card className="hover:shadow-lg transition-shadow">
@@ -210,32 +211,32 @@ export default function About() {
       </section>
 
       {/* 发展历程 */}
-      <section className="py-20">
+      <section className="py-20" aria-labelledby="timeline-title">
         <div className="max-w-container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">发展历程</h2>
+            <h2 id="timeline-title" className="text-3xl font-bold mb-4">发展历程</h2>
           </div>
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-border hidden md:block"></div>
-            <div className="space-y-12">
+          <div className="relative" role="region" aria-label="公司发展时间线">
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-border hidden md:block" aria-hidden="true"></div>
+            <ol className="space-y-12 list-none p-0 m-0">
               {timelineData.map((item, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                <li key={index} className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   <div className={`flex-1 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                     <Card>
                       <CardContent className="p-6">
-                        <div className="text-primary font-bold mb-2">{item.year}</div>
+                        <time dateTime={item.year} className="text-primary font-bold mb-2 block">{item.year}</time>
                         <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                         <p className="text-muted-foreground">{item.description}</p>
                       </CardContent>
                     </Card>
                   </div>
-                  <div className="hidden md:flex w-10 h-10 rounded-full bg-primary text-white items-center justify-center font-bold z-10">
+                  <div className="hidden md:flex w-10 h-10 rounded-full bg-primary text-white items-center justify-center font-bold z-10" aria-hidden="true">
                     {index + 1}
                   </div>
                   <div className="flex-1"></div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </div>
       </section>
@@ -262,7 +263,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 社会效益 */}
+      {/* 社会效益 - 以下数据为示例，请根据实际情况修改 */}
       <section className="py-20">
         <div className="max-w-container mx-auto px-4">
           <div className="text-center mb-12">
@@ -316,8 +317,8 @@ export default function About() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">发展战略</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              态禾园田园综合体项目按照&quot;三步走&quot;战略稳步推进
-            </p>
+                [项目名称]按照&ldquo;三步走&rdquo;战略稳步推进
+              </p>
           </div>
           <div className="space-y-6">
             <Card>
@@ -327,8 +328,8 @@ export default function About() {
                     第一阶段
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">2018—2025</h3>
-                    <p className="text-muted-foreground">打造高标准水果种植基地与生态观光园（已基本完成）</p>
+                    <h3 className="text-xl font-semibold mb-2">[年份]—[年份]</h3>
+                    <p className="text-muted-foreground">[第一阶段描述，如：打造基础产业与设施]</p>
                   </div>
                 </div>
               </CardContent>
@@ -340,8 +341,8 @@ export default function About() {
                     第二阶段
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">2026—2030</h3>
-                    <p className="text-muted-foreground">全面升级农文旅配套，建设区域性乡村度假目的地（重点推进阶段）</p>
+                    <h3 className="text-xl font-semibold mb-2">[年份]—[年份]</h3>
+                    <p className="text-muted-foreground">[第二阶段描述，如：全面升级配套设施，建设核心项目]（重点推进阶段）</p>
                   </div>
                 </div>
               </CardContent>
@@ -353,8 +354,8 @@ export default function About() {
                     第三阶段
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">2031—2035</h3>
-                    <p className="text-muted-foreground">拓展生态康养产业，构建农业、旅游、养老融合发展的综合服务体系（规划阶段）</p>
+                    <h3 className="text-xl font-semibold mb-2">[年份]—[年份]</h3>
+                    <p className="text-muted-foreground">[第三阶段描述，如：拓展延伸产业，构建综合服务体系]（规划阶段）</p>
                   </div>
                 </div>
               </CardContent>

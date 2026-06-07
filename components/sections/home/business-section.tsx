@@ -25,7 +25,7 @@ export default function BusinessSection({ data }: BusinessSectionProps) {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {data.map((item, index) => (
-            <Card key={index} hoverable className="text-center">
+            <Card key={index} hoverable className="text-center active:scale-[0.98]">
               <CardContent className="p-8">
                 <div className="text-6xl mb-4">{item.icon}</div>
                 <h3 className="text-xl font-semibold mb-3">{item.title}</h3>

@@ -24,7 +24,7 @@ import {
 const policyContent: Record<string, { title: string; content: string }> = {
   privacy: {
     title: "隐私政策",
-    content: `[公司名称]（以下简称"我们"）高度重视用户的隐私保护。本隐私政策旨在帮助您了解我们如何收集、使用、存储和保护您的个人信息。
+    content: `湖北态禾农业股份有限公司（以下简称"我们"）高度重视用户的隐私保护。本隐私政策旨在帮助您了解我们如何收集、使用、存储和保护您的个人信息。
 
 一、信息收集
 我们可能收集以下类型的信息：
@@ -65,12 +65,11 @@ const policyContent: Record<string, { title: string; content: string }> = {
 我们可能适时修订本政策，更新后的内容将通过网站公告等方式通知您。
 
 
-
 更新日期：2026年6月7日`,
   },
   terms: {
     title: "使用条款",
-    content: `欢迎使用[公司名称]（以下简称"我们"或"公司"）提供的网站及相关服务。请您仔细阅读以下使用条款。
+    content: `欢迎使用湖北态禾农业股份有限公司（以下简称"我们"或"公司"）提供的网站及相关服务。请您仔细阅读以下使用条款。
 
 一、服务说明
 1. 我们通过网站提供农业产品信息展示、在线咨询、采购意向提交等服务。
@@ -114,7 +113,7 @@ const policyContent: Record<string, { title: string; content: string }> = {
 因本条款引起的或与本条款有关的任何争议，双方应友好协商解决；协商不成的，任何一方均可向公司所在地有管辖权的人民法院提起诉讼。
 
 十、其他
-1. 本条款的解释权归[公司名称]所有。
+1. 本条款的解释权归湖北态禾农业股份有限公司所有。
 2. 本条款自您在网站使用我们服务之日起生效。
 
 更新日期：2026年6月7日`,
@@ -163,7 +162,7 @@ export default function FooterSection({
       ],
     },
   ],
-  copyright = "©2026[公司名称]. 保留所有权利.",
+  copyright = "©2026湖北态禾农业股份有限公司. 保留所有权利.",
   policies = [
     { text: "隐私政策", href: "#privacy" },
     { text: "使用条款", href: "#terms" },
@@ -183,7 +182,7 @@ export default function FooterSection({
   const currentPolicy = openPolicy ? policyContent[openPolicy] : null;
 
   return (
-    <footer className={cn("relative overflow-hidden bg-background border-t border-border pt-16 pb-8 w-full", className)}>
+    <footer className={cn("relative overflow-hidden bg-background border-t border-border pt-16 mb-4 w-full", className)}>
       {/* 装饰性背景 */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-brand-foreground/5 rounded-full blur-3xl" />
@@ -197,7 +196,7 @@ export default function FooterSection({
                 <h3 className="text-xl font-bold text-foreground">{name}</h3>
               </div>
               <p className="text-muted-foreground mb-6 max-w-sm">
-                [公司名称]专注[核心业务]规模化种植/生产，源头把控，品质可靠，稳定供货，诚信经营。
+                湖北态禾农业股份有限公司专注果树规模化种植及鲜果销售，源头把控，品质可靠，稳定供货，诚信经营。
               </p>
               
               {/* 联系方式 */}
@@ -243,7 +242,7 @@ export default function FooterSection({
             ))}
           </FooterContent>
           
-          <FooterBottom className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+          <FooterBottom className="mt-12 pt-8 px-4 border-t border-border flex flex-col md:flex-row md:justify-between md:items-center gap-4">
             <div className="text-muted-foreground text-sm">{copyright}</div>
             <div className="flex items-center gap-6">
               {policies.map((policy, index) => (

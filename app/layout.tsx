@@ -14,20 +14,20 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
   keywords: [
-    "XX农业",
+    "态禾农业",
     "水果种植",
     "桃树种植",
     "梨树种植",
-    "[地区]农业",
+    "湖北大悟农业",
     "绿色食品",
   ],
   authors: [
     {
-      name: "XX农业",
+      name: "湖北态禾农业股份有限公司",
       url: siteConfig.url,
     },
   ],
-  creator: "XX农业",
+  creator: "湖北态禾农业股份有限公司",
   openGraph: {
     type: "website",
     locale: "zh_CN",

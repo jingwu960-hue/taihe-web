@@ -145,7 +145,7 @@ export default function Contact() {
             <div>
               <h2 className="text-2xl font-bold mb-6">位置信息</h2>
               <a
-                href="https://www.amap.com/search?query=[公司名称]&city=[城市代码]"
+                href="https://www.amap.com/search?query=湖北态禾农业股份有限公司&city=420922"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
@@ -189,7 +189,7 @@ export default function Contact() {
                       高铁：孝感北站下车，距基地8公里。
                     </p>
                     <p className="text-muted-foreground text-sm">
-                      自驾：导航搜索&quot;[公司名称]&quot;
+                      自驾：导航搜索&quot;湖北态禾农业股份有限公司&quot;
                     </p>
                   </CardContent>
                 </Card>

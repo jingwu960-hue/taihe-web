@@ -11,22 +11,22 @@ const timelineData = [
   {
     year: "2018",
     title: "公司成立",
-    description: "[公司名称]正式成立，位于[公司地址]，法定代表人[姓名]",
+    description: "湖北态禾农业股份有限公司正式成立，位于湖北省大悟县城关镇中心村",
   },
   {
     year: "2020",
     title: "企业发展里程碑",
-    description: "[描述重要里程碑事件，如成功挂牌、融资等]",
+    description: "公司在新四板成功挂牌，品牌影响力持续提升",
   },
   {
     year: "2021",
     title: "获得行业认可",
-    description: "[描述获得的资质或荣誉]",
+    description: "被认定为省级农业产业化重点龙头企业",
   },
   {
     year: "2026",
     title: "业务全面升级",
-    description: "完成关键升级，打造核心项目，向新业务模式转型升级",
+    description: "完成关键升级，打造观景平台与露营基地，向农文旅融合示范区转型升级",
   },
 ];
 
@@ -60,13 +60,13 @@ export default function About() {
             <div>
               <h2 className="text-3xl font-bold mb-6">企业简介</h2>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                [公司名称]成立于[年份]，位于[公司地址]。
+                湖北态禾农业股份有限公司成立于2018年，位于湖北省大悟县城关镇中心村。
               </p>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                公司深耕现代生态农业，以[核心业务方向]为核心发展路径，致力于将[园区/基地名称]打造成为集[业务模块1]、[业务模块2]、[业务模块3]于一体的综合性产业平台，探索产业价值跃升的实践路径。
+                公司深耕现代生态农业，以果树规模化种植及鲜果销售为核心发展路径，致力于将态禾农业园区打造成为集生态种植、休闲观光、农旅体验于一体的综合性产业平台，探索产业价值跃升的实践路径。
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                截至[年份]，项目累计投资[金额]，基础设施与产业体系已初具规模。当前，公司正处于由[传统模式]向[新模式]转型升级的关键阶段。
+                截至2026年，项目累计投资近4000万元，基础设施与产业体系已初具规模。当前，公司正处于由传统农业园区向农文旅融合示范区转型升级的关键阶段。
               </p>
             </div>
             <div className="relative h-80 rounded-xl overflow-hidden">
@@ -93,16 +93,16 @@ export default function About() {
               <CardContent className="p-8">
                 <div className="text-5xl mb-4">🌳</div>
                 <h3 className="text-xl font-semibold mb-3">园区规模</h3>
-                <p className="text-muted-foreground mb-4">[园区名称]总占地约[面积]亩，其中[主要种植/业务内容][面积]亩，主要种植[产品列表]等优质产品。</p>
-                <p className="text-muted-foreground">配套建设[配套设施名称][面积]亩，投放/种植[产品列表]，逐步构建起&quot;种养结合、循环发展&quot;的生态农业体系。</p>
+                    <p className="text-muted-foreground mb-4">态禾农业园区总占地约1200亩，其中精品水果种植面积1200亩，主要种植桃、梨、猕猴桃等优质产品。</p>
+                    <p className="text-muted-foreground">配套建设生态水产养殖区，投放多种鱼类，逐步构建起&quot;种养结合、循环发展&quot;的生态农业体系。</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-8">
                 <div className="text-5xl mb-4">🏞️</div>
                 <h3 className="text-xl font-semibold mb-3">景观特色</h3>
-                <p className="text-muted-foreground mb-4">[园区名称]依山而建、顺势铺展，整体呈现层次分明的景观特色。</p>
-                <p className="text-muted-foreground">从空中俯瞰，规模化、标准化与景观化融合发展的现代农业格局已基本形成。</p>
+                    <p className="text-muted-foreground mb-4">态禾农业园区依山而建、顺势铺展，整体呈现层次分明的山地梯田果园景观特色。</p>
+                    <p className="text-muted-foreground">从空中俯瞰，规模化、标准化与景观化融合发展的现代农业格局已基本形成。</p>
               </CardContent>
             </Card>
           </div>
@@ -317,8 +317,8 @@ export default function About() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">发展战略</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-                [项目名称]按照&ldquo;三步走&rdquo;战略稳步推进
-              </p>
+                态禾农业园区按照&ldquo;三步走&rdquo;战略稳步推进
+            </p>
           </div>
           <div className="space-y-6">
             <Card>
@@ -328,8 +328,8 @@ export default function About() {
                     第一阶段
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">[年份]—[年份]</h3>
-                    <p className="text-muted-foreground">[第一阶段描述，如：打造基础产业与设施]</p>
+                    <h3 className="text-xl font-semibold mb-2">2018—2025</h3>
+                    <p className="text-muted-foreground">高标准水果种植基地与生态观光园，已基本完成，奠定农业产业基础</p>
                   </div>
                 </div>
               </CardContent>
@@ -341,8 +341,8 @@ export default function About() {
                     第二阶段
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">[年份]—[年份]</h3>
-                    <p className="text-muted-foreground">[第二阶段描述，如：全面升级配套设施，建设核心项目]（重点推进阶段）</p>
+                    <h3 className="text-xl font-semibold mb-2">2026—2030</h3>
+                    <p className="text-muted-foreground">全面升级农文旅配套，建设区域性乡村度假目的地（重点推进阶段）</p>
                   </div>
                 </div>
               </CardContent>
@@ -354,8 +354,8 @@ export default function About() {
                     第三阶段
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">[年份]—[年份]</h3>
-                    <p className="text-muted-foreground">[第三阶段描述，如：拓展延伸产业，构建综合服务体系]（规划阶段）</p>
+                    <h3 className="text-xl font-semibold mb-2">2031—2035</h3>
+                    <p className="text-muted-foreground">拓展生态康养产业，构建农业、旅游、养老融合发展的综合服务体系（规划阶段）</p>
                   </div>
                 </div>
               </CardContent>

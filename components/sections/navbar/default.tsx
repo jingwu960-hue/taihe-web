@@ -46,7 +46,7 @@ interface NavbarProps {
 
 export default function Navbar({
   logo = <CompanyLogo />,
-  name = "[公司名称]",
+  name = "湖北态禾农业",
   homeUrl = "/",
   mobileLinks = [
     { text: "首页", href: "/" },

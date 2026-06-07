@@ -89,7 +89,7 @@ export default function Cooperation() {
         <div className="max-w-container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">招商合作</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            [公司名称]诚邀各界合作伙伴，共同发展，共创未来
+            湖北态禾农业股份有限公司诚邀各界合作伙伴，共同发展，共创未来
           </p>
         </div>
       </section>

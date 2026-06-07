@@ -16,70 +16,77 @@ const categories = [
   { id: "all", name: "全部产品" },
   { id: "pear", name: "梨子系列" },
   { id: "peach", name: "桃子系列" },
-  // { id: "season", name: "当季新品" },
+  { id: "season", name: "当季新品" },
 ];
 
 const products = [
   {
     id: 1,
     name: "苏翠一号梨",
+    slug: "sucui-yihao-li",
     category: "pear",
     description: "果肉细腻，汁多味甜，品质上乘",
-    price: "¥15/斤",
+    price: "价格与销售详谈",
     isSeason: true,
     image: "/images/products/product-1.jpg",
   },
   {
     id: 2,
     name: "新玉梨",
+    slug: "xinyu-li",
     category: "pear",
     description: "果皮细薄，果肉脆嫩，品质优良",
-    price: "¥18/斤",
+    price: "价格与销售详谈",
     isSeason: true,
     image: "/images/products/product-3.jpg",
   },
   {
     id: 3,
     name: "其它品种梨",
+    slug: "qita-li",
     category: "pear",
     description: "多种优质梨品种，满足不同口味需求",
-    price: "¥16/斤",
+    price: "价格与销售详谈",
     isSeason: false,
     image: "/images/products/product-1.jpg",
   },
   {
     id: 4,
     name: "金冠黄桃",
+    slug: "jinguan-huangtao",
     category: "peach",
     description: "果香浓郁，酸甜适口，营养丰富",
-    price: "¥20/斤",
+    price: "价格与销售详谈",
     isSeason: true,
     image: "/images/products/product-2.jpg",
   },
   {
     id: 5,
     name: "胭脂红桃",
+    slug: "yanzhi-hongtao",
     category: "peach",
     description: "果形美观，色泽艳丽，香甜多汁",
-    price: "¥22/斤",
+    price: "价格与销售详谈",
     isSeason: true,
     image: "/images/products/product-4.jpg",
   },
   {
     id: 6,
     name: "红九三桃",
+    slug: "hongjiusan-tao",
     category: "peach",
     description: "果形美观，色泽艳丽，香甜多汁",
-    price: "¥21/斤",
+    price: "价格与销售详谈",
     isSeason: true,
     image: "/images/products/product-4.jpg",
   },
   {
     id: 7,
     name: "其它品种桃",
+    slug: "qita-tao",
     category: "peach",
     description: "多种优质桃品种，满足不同口味需求",
-    price: "¥19/斤",
+    price: "价格与销售详谈",
     isSeason: false,
     image: "/images/products/product-2.jpg",
   },
@@ -133,22 +140,33 @@ export default function Products() {
         <div className="max-w-container mx-auto px-4">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filteredProducts.map((product) => (
-              <Link key={product.id} href={`/products/${product.category}`}>
-                <Card className="h-full overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
+              <Link key={product.id} href={`/products/${product.slug}`}>
+                <Card className="h-full overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                   <div className="relative aspect-[5/3] overflow-hidden">
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-300 hover:scale-105"
+                      className="object-cover transition-transform duration-500 hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
+                    {product.isSeason && (
+                      <div className="absolute left-4 top-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium shadow-md">
+                        当季新品
+                      </div>
+                    )}
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="mb-2 text-xl font-semibold">
+                    <h3 className="mb-3 text-xl font-bold tracking-tight">
                       {product.name}
                     </h3>
-                    <p className="text-muted-foreground text-sm">
+                    <div className="mb-3 flex items-center gap-2">
+                      <span className="text-primary text-lg font-bold">
+                        {product.price}
+                      </span>
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {product.description}
                     </p>
                   </CardContent>

@@ -1,9 +1,14 @@
 // 产品类型定义
 export interface ProductItem {
+  id: number;
   name: string;
+  slug: string;
+  category: string;
   description: string;
+  price: string;
+  isSeason?: boolean;
   image: string;
-  href: string;
+  images?: string[];
 }
 
 export interface ProductSpec {
@@ -19,12 +24,15 @@ export interface ProductFeature {
 
 export interface ProductDetail {
   id: string;
-  category: 'pear' | 'peach';
+  slug: string;
+  category: string;
   name: string;
   price: string;
   image: string;
+  images?: string[];
   description: string;
   specs: ProductSpec[];
   features: ProductFeature[];
   advantages: string[];
+  advantageImage?: string;
 }

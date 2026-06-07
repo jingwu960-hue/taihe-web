@@ -1,9 +1,83 @@
 // 产品详情数据配置
-import type { ProductDetail } from '@/types';
+import type { ProductDetail, ProductItem } from '@/types';
+
+export const productItems: ProductItem[] = [
+  {
+    id: 1,
+    name: '苏翠一号梨',
+    slug: 'sucui-yihao-li',
+    category: 'pear',
+    description: '果肉细腻，汁多味甜，品质上乘',
+    price: '价格与销售详谈',
+    isSeason: true,
+    image: '/images/products/product-1.jpg',
+  },
+  {
+    id: 2,
+    name: '新玉梨',
+    slug: 'xinyu-li',
+    category: 'pear',
+    description: '果皮细薄，果肉脆嫩，品质优良',
+    price: '价格与销售详谈',
+    isSeason: true,
+    image: '/images/products/product-3.jpg',
+  },
+  {
+    id: 3,
+    name: '其它品种梨',
+    slug: 'qita-li',
+    category: 'pear',
+    description: '多种优质梨品种，满足不同口味需求',
+    price: '价格与销售详谈',
+    isSeason: false,
+    image: '/images/products/product-1.jpg',
+  },
+  {
+    id: 4,
+    name: '金冠黄桃',
+    slug: 'jinguan-huangtao',
+    category: 'peach',
+    description: '果香浓郁，酸甜适口，营养丰富',
+    price: '价格与销售详谈',
+    isSeason: true,
+    image: '/images/products/product-2.jpg',
+  },
+  {
+    id: 5,
+    name: '胭脂红桃',
+    slug: 'yanzhi-hongtao',
+    category: 'peach',
+    description: '果形美观，色泽艳丽，香甜多汁',
+    price: '价格与销售详谈',
+    isSeason: true,
+    image: '/images/products/product-4.jpg',
+  },
+  {
+    id: 6,
+    name: '红九三桃',
+    slug: 'hongjiusan-tao',
+    category: 'peach',
+    description: '果形美观，色泽艳丽，香甜多汁',
+    price: '价格与销售详谈',
+    isSeason: true,
+    image: '/images/products/product-4.jpg',
+  },
+  {
+    id: 7,
+    name: '其它品种桃',
+    slug: 'qita-tao',
+    category: 'peach',
+    description: '多种优质桃品种，满足不同口味需求',
+    price: '价格与销售详谈',
+    isSeason: false,
+    image: '/images/products/product-2.jpg',
+  },
+];
 
 export const productDetails: Record<string, ProductDetail> = {
   pear: {
     id: 'pear',
+    slug: 'pear',
     category: 'pear',
     name: '梨系列',
     price: '¥15-18/斤',
@@ -29,6 +103,7 @@ export const productDetails: Record<string, ProductDetail> = {
   },
   peach: {
     id: 'peach',
+    slug: 'peach',
     category: 'peach',
     name: '桃系列',
     price: '¥19-22/斤',
@@ -56,4 +131,27 @@ export const productDetails: Record<string, ProductDetail> = {
 
 export const getProductDetail = (category: string): ProductDetail | undefined => {
   return productDetails[category];
+};
+
+export const getProductBySlug = (slug: string): ProductDetail | undefined => {
+  const product = productItems.find((p) => p.slug === slug);
+  if (!product) return undefined;
+
+  const categoryData = productDetails[product.category];
+  if (!categoryData) return undefined;
+
+  return {
+    ...categoryData,
+    id: product.id.toString(),
+    slug: product.slug,
+    name: product.name,
+    price: product.price,
+    image: product.image,
+    description: product.description,
+  };
+};
+
+export const getProductSlugByCategory = (category: string, index: number = 0): string => {
+  const products = productItems.filter((p) => p.category === category);
+  return products[index]?.slug ?? products[0]?.slug ?? '';
 };

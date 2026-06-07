@@ -1,17 +1,37 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 import Footer from '@/components/sections/footer/default';
 import Navbar from '@/components/sections/navbar/default';
 import ProductDetailSection from '@/components/sections/product-detail';
 import { FloatingContact } from '@/components/ui/floating-contact';
 import { LayoutLines } from '@/components/ui/layout-lines';
-import { getProductDetail } from '@/config/products';
+import { getProductBySlug } from '@/config/products';
 
-export default function PearProduct() {
-  const product = getProductDetail('pear');
+interface ProductDetailPageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+export function generateStaticParams() {
+  return [
+    { slug: 'sucui-yihao-li' },
+    { slug: 'xinyu-li' },
+    { slug: 'qita-li' },
+    { slug: 'jinguan-huangtao' },
+    { slug: 'yanzhi-hongtao' },
+    { slug: 'hongjiusan-tao' },
+    { slug: 'qita-tao' },
+  ];
+}
+
+export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
 
   if (!product) {
-    return null;
+    notFound();
   }
 
   return (

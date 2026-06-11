@@ -1,6 +1,6 @@
 'use client';
 
-import { Home, RefreshCw } from 'lucide-react';
+import { AlertTriangle, Home, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect } from 'react';
 
@@ -24,7 +24,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
       <div className="text-center max-w-md">
         <div className="mb-8">
-          <span className="text-6xl">⚠️</span>
+          <AlertTriangle size={64} className="shrink-0 text-destructive" />
         </div>
         
         <h1 className="text-3xl font-bold mb-4">

@@ -40,9 +40,9 @@ export const bannerData: BannerItem[] = [
 
 // 业务数据 - 可根据实际业务类型修改
 export const businessData: BusinessItem[] = [
-  { icon: "🌳", title: "桃树种植", description: "金冠黄桃、红九三红桃等其它品种桃树种植" },
-  { icon: "🍐", title: "梨树种植", description: "苏翠一号梨、新玉梨等其它品种梨树种植" },
-  { icon: "📦", title: "水果销售", description: "批发、商超、政企采购，家庭采摘等多渠道服务" },
+  { icon: "TreeDeciduous", title: "桃树种植", description: "金冠黄桃、红九三红桃等其它品种桃树种植" },
+  { icon: "TreePine", title: "梨树种植", description: "苏翠一号梨、新玉梨等其它品种梨树种植" },
+  { icon: "Package", title: "水果销售", description: "批发、商超、政企采购，家庭采摘等多渠道服务" },
 ];
 
 // 产品数据 - 以下为示例，可根据实际产品替换
@@ -54,10 +54,10 @@ export const productsData = [
 ];
 
 export const advantagesData: AdvantageItem[] = [
-  { icon: "✅", title: "品质保证", description: "从种植到采摘层层筛选，严格把控" },
-  { icon: "🚚", title: "新鲜直达", description: "采摘后24小时内发货，锁鲜保鲜" },
-  { icon: "🏆", title: "专业团队", description: "50年农业种植经验，技术过硬" },
-  { icon: "🤝", title: "合作共赢", description: "灵活的合作模式，与您携手共进" },
+  { icon: "ShieldCheck", title: "品质保证", description: "从种植到采摘层层筛选，严格把控" },
+  { icon: "Truck", title: "新鲜直达", description: "采摘后24小时内发货，锁鲜保鲜" },
+  { icon: "Award", title: "专业团队", description: "50年农业种植经验，技术过硬" },
+  { icon: "Handshake", title: "合作共赢", description: "灵活的合作模式，与您携手共进" },
 ];
 
 export const casesData: CaseItem[] = [

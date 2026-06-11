@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Newspaper, BarChart3, Sprout } from "lucide-react";
 
 import Footer from "@/components/sections/footer/default";
 import Navbar from "@/components/sections/navbar/default";
@@ -152,10 +153,10 @@ export default function News() {
             {filteredNews.map((newsItem) => (
               <Card key={newsItem.id} className="h-full hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden">
                 <div className="h-40 bg-gradient-to-br from-primary/20 to-brand-foreground/20 flex items-center justify-center">
-                  <div className="text-5xl">
-                    {newsItem.category === "company" && "📰"}
-                    {newsItem.category === "industry" && "📊"}
-                    {newsItem.category === "tech" && "🌱"}
+                  <div className="flex items-center justify-center h-full">
+                    {newsItem.category === "company" && <Newspaper size={56} className="shrink-0 text-primary" />}
+                    {newsItem.category === "industry" && <BarChart3 size={56} className="shrink-0 text-primary" />}
+                    {newsItem.category === "tech" && <Sprout size={56} className="shrink-0 text-primary" />}
                   </div>
                 </div>
                 <CardContent className="p-6">

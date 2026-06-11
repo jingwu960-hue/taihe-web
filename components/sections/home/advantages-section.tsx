@@ -1,6 +1,14 @@
 "use client";
 
 import type { AdvantageItem } from "@/types";
+import { ShieldCheck, Truck, Award, Handshake } from "lucide-react";
+
+const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  ShieldCheck,
+  Truck,
+  Award,
+  Handshake,
+};
 
 interface AdvantagesSectionProps {
   data: AdvantageItem[];
@@ -24,13 +32,16 @@ export default function AdvantagesSection({ data }: AdvantagesSectionProps) {
           <p className="text-muted-foreground max-w-2xl mx-auto">专业品质，诚信服务，是您值得信赖的合作伙伴</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {data.map((item, index) => (
-            <div key={index} className="text-center p-6 rounded-lg bg-muted/30">
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-              <p className="text-muted-foreground text-sm">{item.description}</p>
-            </div>
-          ))}
+          {data.map((item, index) => {
+            const IconComponent = iconMap[item.icon];
+            return (
+              <div key={index} className="text-center p-6 rounded-lg bg-muted/30">
+                {IconComponent && <IconComponent size={48} className="shrink-0 text-primary mx-auto mb-4" />}
+                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm">{item.description}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

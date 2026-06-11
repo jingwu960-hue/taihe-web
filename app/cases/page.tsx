@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Store, Package, Building2 } from "lucide-react";
 
 import Footer from "@/components/sections/footer/default";
 import Navbar from "@/components/sections/navbar/default";
@@ -116,10 +117,10 @@ export default function Cases() {
               <Card key={caseItem.id} className="h-full hover:shadow-lg transition-all hover:-translate-y-1">
                 <CardContent className="p-6">
                   <div className="h-40 bg-gradient-to-br from-primary/20 to-brand-foreground/20 rounded-lg mb-4 flex items-center justify-center">
-                    <div className="text-5xl">
-                      {caseItem.type === "supermarket" && "🏪"}
-                      {caseItem.type === "wholesale" && "📦"}
-                      {caseItem.type === "government" && "🏛️"}
+                    <div className="flex items-center justify-center h-full">
+                      {caseItem.type === "supermarket" && <Store size={56} className="shrink-0 text-primary" />}
+                      {caseItem.type === "wholesale" && <Package size={56} className="shrink-0 text-primary" />}
+                      {caseItem.type === "government" && <Building2 size={56} className="shrink-0 text-primary" />}
                     </div>
                   </div>
                   <div className="text-sm text-primary font-medium mb-2">

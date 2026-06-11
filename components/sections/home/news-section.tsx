@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Newspaper, BarChart3, Sprout } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import type { NewsItem } from "@/types";
@@ -19,7 +20,7 @@ export default function NewsSection({ data }: NewsSectionProps) {
   }
 
   const getCategoryIcon = (index: number) => {
-    const icons = ["📰", "📊", "🌱"];
+    const icons = [Newspaper, BarChart3, Sprout];
     return icons[index % icons.length];
   };
 
@@ -31,22 +32,23 @@ export default function NewsSection({ data }: NewsSectionProps) {
           <p className="text-muted-foreground max-w-2xl mx-auto">了解公司最新动态，关注行业发展</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          {data.map((item, index) => (
-            <Link key={index} href="/news">
-              <Card className="h-full overflow-hidden transition-shadow duration-200 hover:shadow-lg hover-news-card active:scale-[0.98]">
-                <div className="h-40 bg-gradient-to-br from-primary/20 to-brand-foreground/20 flex items-center justify-center">
-                  <div className="text-5xl">
-                    {getCategoryIcon(index)}
+          {data.map((item, index) => {
+            const IconComponent = getCategoryIcon(index);
+            return (
+              <Link key={index} href="/news">
+                <Card className="h-full overflow-hidden transition-shadow duration-200 hover:shadow-lg hover-news-card active:scale-[0.98]">
+                  <div className="h-40 bg-gradient-to-br from-primary/20 to-brand-foreground/20 flex items-center justify-center">
+                    <IconComponent size={56} className="shrink-0 text-primary" />
                   </div>
-                </div>
-                <CardContent className="p-6">
-                  <div className="text-sm text-muted-foreground mb-3">{item.date}</div>
-                  <h3 className="text-lg font-semibold mb-3 line-clamp-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm line-clamp-3">{item.summary}</p>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
+                  <CardContent className="p-6">
+                    <div className="text-sm text-muted-foreground mb-3">{item.date}</div>
+                    <h3 className="text-lg font-semibold mb-3 line-clamp-2">{item.title}</h3>
+                    <p className="text-muted-foreground text-sm line-clamp-3">{item.summary}</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

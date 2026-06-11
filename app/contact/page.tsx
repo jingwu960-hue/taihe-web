@@ -1,5 +1,6 @@
 "use client";
 
+import { Mail, Map, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 
 import Footer from "@/components/sections/footer/default";
@@ -54,21 +55,21 @@ export default function Contact() {
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">📍</div>
+                <MapPin size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">公司地址</h3>
                 <p className="text-muted-foreground">{siteConfig.contact.address}</p>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">📞</div>
+                <Phone size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">联系电话</h3>
                 <p className="text-muted-foreground">{siteConfig.contact.phone}</p>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">📧</div>
+                <Mail size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">电子邮箱</h3>
                 <p className="text-muted-foreground">{siteConfig.contact.email}</p>
               </CardContent>
@@ -166,7 +167,7 @@ export default function Contact() {
                   {(!mapLoaded || mapError) && (
                     <div className="w-full h-full bg-gradient-to-br from-primary/20 to-brand-foreground/20 flex items-center justify-center">
                       <div className="text-center">
-                        <div className="text-6xl mb-4">🗺️</div>
+                        <Map size={64} className="shrink-0 text-primary mx-auto mb-4" />
                         <p className="text-muted-foreground">点击查看地图位置</p>
                         <p className="text-sm text-primary mt-2">在高德地图中打开 →</p>
                       </div>

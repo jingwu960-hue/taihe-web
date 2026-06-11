@@ -1,9 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { Sparkles, Droplets, HeartPulse, Leaf, Citrus } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import type { ProductDetail } from '@/types';
+
+const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  Sparkles,
+  Droplets,
+  HeartPulse,
+  Leaf,
+  Citrus,
+};
 
 interface ProductDetailProps {
   product: ProductDetail;
@@ -65,15 +75,18 @@ export default function ProductDetailSection({ product }: ProductDetailProps) {
         <div className="max-w-container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">产品特点</h2>
           <div className="grid md:grid-cols-4 gap-6">
-            {product.features.map((feature, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="p-6">
-                  <div className="text-4xl mb-4">{feature.icon}</div>
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground text-sm">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {product.features.map((feature, index) => {
+              const IconComponent = iconMap[feature.icon];
+              return (
+                <Card key={index} className="text-center">
+                  <CardContent className="p-6">
+                    {IconComponent && <IconComponent size={48} className="shrink-0 text-primary mx-auto mb-4" />}
+                    <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-muted-foreground text-sm">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>

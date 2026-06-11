@@ -1,3 +1,5 @@
+import { Sprout, Droplets, Thermometer, Dna } from "lucide-react";
+
 import Footer from "../../components/sections/footer/default";
 import Navbar from "../../components/sections/navbar/default";
 import { LayoutLines } from "../../components/ui/layout-lines";
@@ -16,28 +18,28 @@ export default function Technology() {
         </div>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-muted/50 rounded-lg p-6">
-            <div className="text-4xl mb-4">🌱</div>
+            <Sprout size={48} className="shrink-0 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2">有机种植</h3>
             <p className="text-muted-foreground">
               采用有机肥料，拒绝化学农药，保证水果的天然品质和健康安全。
             </p>
           </div>
           <div className="bg-muted/50 rounded-lg p-6">
-            <div className="text-4xl mb-4">💧</div>
+            <Droplets size={48} className="shrink-0 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2">智能灌溉</h3>
             <p className="text-muted-foreground">
               采用滴灌技术，精准控制水分供应，提高水资源利用效率。
             </p>
           </div>
           <div className="bg-muted/50 rounded-lg p-6">
-            <div className="text-4xl mb-4">🌡️</div>
+            <Thermometer size={48} className="shrink-0 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2">环境监测</h3>
             <p className="text-muted-foreground">
               实时监测温度、湿度、光照等环境参数，为果树生长提供最佳条件。
             </p>
           </div>
           <div className="bg-muted/50 rounded-lg p-6">
-            <div className="text-4xl mb-4">🧬</div>
+            <Dna size={48} className="shrink-0 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2">品种改良</h3>
             <p className="text-muted-foreground">
               与科研机构合作，不断改良品种，提升水果品质和产量。

@@ -1,4 +1,23 @@
 import Image from "next/image";
+import {
+  Building,
+  Trophy,
+  Medal,
+  TreeDeciduous,
+  Mountain,
+  Grape,
+  Fish,
+  Footprints,
+  Telescope,
+  Tent,
+  Target,
+  Star,
+  Heart,
+  Rocket,
+  Users,
+  Briefcase,
+  Wallet,
+} from "lucide-react";
 
 import Footer from "@/components/sections/footer/default";
 import Navbar from "@/components/sections/navbar/default";
@@ -31,10 +50,10 @@ const timelineData = [
 ];
 
 const certificatesData = [
-  { name: "行业资质认证", icon: "🏦" },
-  { name: "农业产业化重点企业", icon: "🏆" },
-  { name: "绿色食品认证", icon: "🥇" },
-  { name: "品牌商标注册", icon: "®" },
+  { name: "行业资质认证", icon: Building },
+  { name: "农业产业化重点企业", icon: Trophy },
+  { name: "绿色食品认证", icon: Medal },
+  { name: "品牌商标注册", icon: null },
 ];
 
 export default function About() {
@@ -91,7 +110,7 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-8">
             <Card>
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">🌳</div>
+                <TreeDeciduous size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-3">园区规模</h3>
                     <p className="text-muted-foreground mb-4">态禾农业园区总占地约1200亩，其中精品水果种植面积1200亩，主要种植桃、梨、猕猴桃等优质产品。</p>
                     <p className="text-muted-foreground">配套建设生态水产养殖区，投放多种鱼类，逐步构建起&quot;种养结合、循环发展&quot;的生态农业体系。</p>
@@ -99,7 +118,7 @@ export default function About() {
             </Card>
             <Card>
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">🏞️</div>
+                <Mountain size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-3">景观特色</h3>
                     <p className="text-muted-foreground mb-4">态禾农业园区依山而建、顺势铺展，整体呈现层次分明的山地梯田果园景观特色。</p>
                     <p className="text-muted-foreground">从空中俯瞰，规模化、标准化与景观化融合发展的现代农业格局已基本形成。</p>
@@ -118,7 +137,7 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">🍇</div>
+                <Grape size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-3">水果采摘</h3>
                 <p className="text-muted-foreground text-sm">
                   让游客亲手采摘新鲜水果，体验农耕乐趣
@@ -127,7 +146,7 @@ export default function About() {
             </Card>
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">🎣</div>
+                <Fish size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-3">休闲垂钓</h3>
                 <p className="text-muted-foreground text-sm">
                   在生态养殖区享受静谧的垂钓时光
@@ -136,7 +155,7 @@ export default function About() {
             </Card>
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">🚶</div>
+                <Footprints size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-3">农业观光</h3>
                 <p className="text-muted-foreground text-sm">
                   欣赏梯田果园美景，感受现代农业魅力
@@ -147,14 +166,14 @@ export default function About() {
           <div className="mt-12 grid md:grid-cols-2 gap-6">
             <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">🔭</div>
+                <Telescope size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-3">观景平台</h3>
                 <p className="text-muted-foreground">依托园区制高点布局，视野开阔，可全景俯瞰园区，成为标志性景观与核心打卡地。</p>
               </CardContent>
             </Card>
             <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">⛺</div>
+                <Tent size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-3">露营基地</h3>
                 <p className="text-muted-foreground">融入自然生态环境，打造沉浸式户外休闲空间，满足城市客群对&quot;轻度假、慢生活&quot;的多元需求。</p>
               </CardContent>
@@ -172,7 +191,7 @@ export default function About() {
           <div className="grid md:grid-cols-4 gap-6">
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-4xl mb-4">🎯</div>
+                <Target size={48} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">企业使命</h3>
                 <p className="text-muted-foreground text-sm">
                   打造农文旅融合示范区，推动乡村振兴
@@ -181,7 +200,7 @@ export default function About() {
             </Card>
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-4xl mb-4">🌟</div>
+                <Star size={48} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">企业愿景</h3>
                 <p className="text-muted-foreground text-sm">
                   成为区域性乡村度假目的地
@@ -190,7 +209,7 @@ export default function About() {
             </Card>
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-4xl mb-4">💚</div>
+                <Heart size={48} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">核心价值</h3>
                 <p className="text-muted-foreground text-sm">
                   生态、融合、创新、共享
@@ -199,7 +218,7 @@ export default function About() {
             </Card>
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-4xl mb-4">🚀</div>
+                <Rocket size={48} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">经营理念</h3>
                 <p className="text-muted-foreground text-sm">
                   种养结合，循环发展
@@ -254,7 +273,11 @@ export default function About() {
             {certificatesData.map((item, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-8 text-center">
-                  <div className="text-5xl mb-4">{item.icon}</div>
+                  {item.icon ? (
+                    <item.icon size={56} className="shrink-0 text-primary mx-auto mb-4" />
+                  ) : (
+                    <div className="text-5xl mb-4 font-bold text-primary">®</div>
+                  )}
                   <h3 className="text-xl font-semibold">{item.name}</h3>
                 </CardContent>
               </Card>
@@ -272,7 +295,7 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">👥</div>
+                <Users size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-2">3000+</h3>
                 <h4 className="text-lg font-semibold mb-2">带动农户</h4>
                 <p className="text-muted-foreground text-sm">
@@ -282,7 +305,7 @@ export default function About() {
             </Card>
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">💼</div>
+                <Briefcase size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-2">300+</h3>
                 <h4 className="text-lg font-semibold mb-2">就业岗位</h4>
                 <p className="text-muted-foreground text-sm">
@@ -292,7 +315,7 @@ export default function About() {
             </Card>
             <Card className="text-center">
               <CardContent className="p-8">
-                <div className="text-5xl mb-4">💰</div>
+                <Wallet size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-2">2.5万</h3>
                 <h4 className="text-lg font-semibold mb-2">农民增收</h4>
                 <p className="text-muted-foreground text-sm">

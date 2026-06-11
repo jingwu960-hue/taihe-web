@@ -1,5 +1,6 @@
 "use client";
 
+import { Building2, Check, Package, Store, Users } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -107,18 +108,16 @@ export default function Cooperation() {
             {cooperationModes.map((mode, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
-                  <div className="text-4xl mb-4">
-                    {index === 0 && "📦"}
-                    {index === 1 && "🏪"}
-                    {index === 2 && "🏛️"}
-                    {index === 3 && "👨‍👩‍👧‍👦"}
-                  </div>
+                  {index === 0 && <Package size={48} className="shrink-0 text-primary mx-auto mb-4" />}
+                  {index === 1 && <Store size={48} className="shrink-0 text-primary mx-auto mb-4" />}
+                  {index === 2 && <Building2 size={48} className="shrink-0 text-primary mx-auto mb-4" />}
+                  {index === 3 && <Users size={48} className="shrink-0 text-primary mx-auto mb-4" />}
                   <h3 className="text-xl font-semibold mb-3">{mode.title}</h3>
                   <p className="text-muted-foreground text-sm mb-4">{mode.description}</p>
                   <ul className="space-y-2">
                     {mode.features.map((feature, i) => (
                       <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
-                        <span className="text-primary">✓</span>
+                        <Check size={16} className="shrink-0 text-primary" />
                         {feature}
                       </li>
                     ))}

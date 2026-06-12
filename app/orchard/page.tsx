@@ -19,6 +19,7 @@ import {
   TreeDeciduous,
   Users,
   Briefcase,
+  BadgeCheck
 } from "lucide-react";
 
 import Footer from "@/components/sections/footer/default";
@@ -47,6 +48,7 @@ const iconMap = {
   TreeDeciduous,
   Users,
   Briefcase,
+  BadgeCheck,
 };
 
 type IconKey = keyof typeof iconMap;
@@ -116,7 +118,7 @@ const certificates = [
   { name: "新四板挂牌", icon: "Building" as IconKey, year: "2020" },
   { name: "省级农业产业化重点龙头企业", icon: "Trophy" as IconKey, year: "2021" },
   { name: "绿色食品认证", icon: "Medal" as IconKey, year: "已认证" },
-  { name: "态禾品牌商标", icon: null, year: "已注册" },
+  { name: "态禾品牌商标", icon: "BadgeCheck" as IconKey, year: "已注册" },
 ];
 
 // 发展战略数据

@@ -6,7 +6,7 @@ import Footer from "@/components/sections/footer/default";
 import AdvantagesSection from "@/components/sections/home/advantages-section";
 import BusinessSection from "@/components/sections/home/business-section";
 import EmblaCarousel from "@/components/sections/home/carousel/embla-carousel";
-import CasesSection from "@/components/sections/home/cases-section";
+// import CasesSection from "@/components/sections/home/cases-section";
 import CtaSection from "@/components/sections/home/cta-section";
 import NewsSection from "@/components/sections/home/news-section";
 import ProductsSection from "@/components/sections/home/products-section";
@@ -34,7 +34,7 @@ export default function Home() {
       <BusinessSection data={businessData} />
       <ProductsSection data={productsData} />
       <AdvantagesSection data={advantagesData} />
-      <CasesSection data={casesData} />
+      {/* <CasesSection data={casesData} /> */}
       <NewsSection data={newsData} />
       <CtaSection />
       <Footer />

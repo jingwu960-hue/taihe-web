@@ -16,7 +16,7 @@ import {
   Rocket,
   Users,
   Briefcase,
-  Wallet,
+  Wallet,BadgeCheck
 } from "lucide-react";
 
 import Footer from "@/components/sections/footer/default";
@@ -53,7 +53,7 @@ const certificatesData = [
   { name: "行业资质认证", icon: Building },
   { name: "农业产业化重点企业", icon: Trophy },
   { name: "绿色食品认证", icon: Medal },
-  { name: "品牌商标注册", icon: null },
+  { name: "品牌商标注册", icon: BadgeCheck },
 ];
 
 export default function About() {

@@ -13,7 +13,7 @@ export const DEFAULT_PLACEHOLDER =
 export const bannerData: BannerItem[] = [
   {
     title: "源头种植，品质可控",
-    description: "XX农业专注果树规模化种植，为您提供新鲜优质的水果",
+    description: "湖北态禾农业专注果树规模化种植，为您提供新鲜优质的水果",
     image: "/images/banners/banner-1.jpg",
   },
   {

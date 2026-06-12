@@ -1,25 +1,11 @@
 "use client";
 
 import { ArrowUp, MessageSquare, Phone } from "lucide-react";
-import { useCallback,useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { siteConfig } from "@/config/site";
 
 import { Button } from "./button";
-
-/**
- * 节流函数 - 限制函数调用频率
- */
-function throttle<T extends (...args: any[]) => any>(func: T, limit: number) {
-  let inThrottle: boolean;
-  return function (this: any, ...args: any[]) {
-    if (!inThrottle) {
-      func.apply(this, args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
-  }
-}
 
 export function FloatingContact() {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,30 +23,24 @@ export function FloatingContact() {
 
   const handleScroll = useCallback(() => {
     lastKnownScrollY.current = window.pageYOffset;
-    
+
     if (!ticking.current) {
       window.requestAnimationFrame(updateScrollState);
       ticking.current = true;
     }
   }, [updateScrollState]);
 
-  // 使用 useCallback 和 useEffect 来确保清理函数正确
-  const throttledScroll = useCallback(
-    throttle(handleScroll, 100),
-    [handleScroll]
-  );
-
   useEffect(() => {
     // 初始检查
     lastKnownScrollY.current = window.pageYOffset;
     setIsVisible(window.pageYOffset > 300);
-    
-    window.addEventListener("scroll", throttledScroll, { passive: true });
-    
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => {
-      window.removeEventListener("scroll", throttledScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [throttledScroll]);
+  }, [handleScroll]);
 
   const scrollToTop = () => {
     window.scrollTo({

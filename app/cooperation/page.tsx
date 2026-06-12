@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { FloatingContact } from "@/components/ui/floating-contact";
 import { LayoutLines } from "@/components/ui/layout-lines";
+import { siteConfig } from "@/config/site";
 
 // 模拟数据
 const cooperationModes = [
@@ -194,7 +195,7 @@ export default function Cooperation() {
               <Link href="/contact">在线留言</Link>
             </Button>
             <Button size="lg" variant="secondary" asChild>
-              <a href="tel:400-888-8888">电话咨询</a>
+              <a href={`tel:${siteConfig.contact.phone}`}>电话咨询</a>
             </Button>
           </div>
         </div>

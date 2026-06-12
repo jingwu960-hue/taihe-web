@@ -1,7 +1,5 @@
-"use client";
-
+import { BarChart3, Newspaper, Sprout } from "lucide-react";
 import Link from "next/link";
-import { Newspaper, BarChart3, Sprout } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import type { NewsItem } from "@/types";

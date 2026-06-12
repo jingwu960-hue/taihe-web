@@ -4,11 +4,10 @@ import { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import Image from 'next/image';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Play, Pause } from 'lucide-react';
 
 import type { BannerItem } from '@/types';
 
-import { usePrevNextButtons, PrevButton, NextButton } from './arrow-buttons';
+import { usePrevNextButtons } from './arrow-buttons';
 import { AutoScroll, useAutoScroll } from './auto-scroll';
 
 type PropType = {
@@ -77,14 +76,11 @@ const EmblaCarousel: React.FC<PropType> = ({
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const {
-    prevBtnDisabled,
-    nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
 
-  const { autoScrollIsPlaying, toggleAutoScroll, onAutoScrollButtonClick } =
-    useAutoScroll(emblaApi);
+  const { onAutoScrollButtonClick } = useAutoScroll(emblaApi);
 
   const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
     setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -154,7 +150,7 @@ const EmblaCarousel: React.FC<PropType> = ({
                   <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="max-w-container mx-auto px-4 w-full flex items-center justify-center">
-                      <div className="max-w-xl">
+                      <div className="w-full flex flex-col items-center justify-center">
                         <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
                           {banner.title}
                         </h1>
@@ -170,35 +166,8 @@ const EmblaCarousel: React.FC<PropType> = ({
           </div>
         </div>
 
-        {/* 左侧箭头按钮 */}
-        <PrevButton
-          onClick={() => onAutoScrollButtonClick(onPrevButtonClick)}
-          disabled={prevBtnDisabled}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10"
-          aria-label="上一张轮播图"
-        />
-
-        {/* 右侧箭头按钮 */}
-        <NextButton
-          onClick={() => onAutoScrollButtonClick(onNextButtonClick)}
-          disabled={nextBtnDisabled}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10"
-          aria-label="下一张轮播图"
-        />
-
         {/* 底部控制区域 */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-6">
-          {/* 播放/暂停按钮 - 只在客户端挂载后显示以避免 hydration 问题 */}
-          {/* {hasMounted && !prefersReducedMotion && (
-            <button
-              onClick={toggleAutoScroll}
-              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent flex items-center justify-center"
-              aria-label={autoScrollIsPlaying ? "暂停轮播" : "播放轮播"}
-            >
-              {autoScrollIsPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-            </button>
-          )} */}
-          
           {/* 指示器 */}
           <div className="flex items-center gap-3" role="tablist" aria-label="轮播图导航">
             {scrollSnaps.map((_, index) => (

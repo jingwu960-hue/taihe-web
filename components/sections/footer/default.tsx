@@ -155,7 +155,6 @@ export default function FooterSection({
     {
       title: "更多链接",
       links: [
-        // { text: "合作案例", href: "/cases" },
         { text: "新闻资讯", href: "/news" },
         { text: "招商合作", href: "/cooperation" },
         { text: "联系我们", href: "/contact" },

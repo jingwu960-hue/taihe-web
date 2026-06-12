@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-interface ProductItem {
+interface ProductCardData {
   name: string;
   description: string;
   image: string;
@@ -13,7 +13,7 @@ interface ProductItem {
 }
 
 interface ProductsSectionProps {
-  data: ProductItem[];
+  data: ProductCardData[];
 }
 
 export default function ProductsSection({ data }: ProductsSectionProps) {

@@ -1,23 +1,23 @@
-import Image from "next/image";
 import {
+BadgeCheck,
+  Briefcase,
   Building,
-  Trophy,
-  Medal,
-  TreeDeciduous,
-  Mountain,
-  Grape,
   Fish,
   Footprints,
+  Grape,
+  Heart,
+  Medal,
+  Mountain,
+  Rocket,
+  Star,
+  Target,
   Telescope,
   Tent,
-  Target,
-  Star,
-  Heart,
-  Rocket,
+  TreeDeciduous,
+  Trophy,
   Users,
-  Briefcase,
-  Wallet,BadgeCheck
-} from "lucide-react";
+  Wallet} from "lucide-react";
+import Image from "next/image";
 
 import Footer from "@/components/sections/footer/default";
 import Navbar from "@/components/sections/navbar/default";

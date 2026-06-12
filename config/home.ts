@@ -3,7 +3,6 @@ import type {
   AdvantageItem,
   BannerItem,
   BusinessItem,
-  CaseItem,
   NewsItem,
 } from '@/types';
 
@@ -60,14 +59,8 @@ export const advantagesData: AdvantageItem[] = [
   { icon: "Handshake", title: "合作共赢", description: "灵活的合作模式，与您携手共进" },
 ];
 
-export const casesData: CaseItem[] = [
-  { name: "某大型商超", type: "商超合作", description: "连续3年稳定供应，品质获客户高度认可" },
-  { name: "某农产品批发商", type: "批发合作", description: "年采购量超100吨，建立长期合作关系" },
-  { name: "某政府机关", type: "政企采购", description: "指定农产品供应商，服务保障到位" },
-];
-
 export const newsData: NewsItem[] = [
   { title: "2026年完成关键升级 打造观景平台与露营基地", date: "2026-06-06", summary: "2026年，园区完成关键升级，重点打造两大核心项目：观景平台依托山地制高点布局，可全景俯瞰梯田果园；露营基地融入自然生态环境，满足城市客群对\"轻度假、慢生活\"的多元需求。" },
-  { title: "累计投资近4000万元 园区初具规模", date: "2026-05-20", summary: "截至2026年，XX生态园田园综合体项目累计投资近4000万元，园区基础设施与产业体系已初具规模，正处于由\"传统农业园区\"向\"农文旅融合示范区\"转型升级的关键阶段。" },
+  { title: "累计投资近4000万元 园区初具规模", date: "2026-05-20", summary: "截至2026年，态禾生态园田园综合体项目累计投资近4000万元，园区基础设施与产业体系已初具规模，正处于由\"传统农业园区\"向\"农文旅融合示范区\"转型升级的关键阶段。" },
   { title: "累计带动3000余户农户增收致富", date: "2026-04-15", summary: "公司坚持产业发展与社会责任协同推进，累计带动周边3000余户农户参与产业发展，提供就业岗位300余个，促进农民年均增收约2.5万元，助力乡村振兴与区域经济发展。" },
 ];

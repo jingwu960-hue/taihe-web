@@ -1,8 +1,7 @@
-"use client";
+import { Package,TreeDeciduous, TreePine } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import type { BusinessItem } from "@/types";
-import { TreeDeciduous, TreePine, Package } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   TreeDeciduous,

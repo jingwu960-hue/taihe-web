@@ -1,7 +1,7 @@
 "use client";
 
+import { Building2,Package, Store } from "lucide-react";
 import { useState } from "react";
-import { Store, Package, Building2 } from "lucide-react";
 
 import Footer from "@/components/sections/footer/default";
 import Navbar from "@/components/sections/navbar/default";

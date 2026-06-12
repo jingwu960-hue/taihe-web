@@ -1,7 +1,6 @@
-"use client";
+import { Award, Handshake,ShieldCheck, Truck } from "lucide-react";
 
 import type { AdvantageItem } from "@/types";
-import { ShieldCheck, Truck, Award, Handshake } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   ShieldCheck,

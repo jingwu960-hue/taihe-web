@@ -1,8 +1,8 @@
-import { Sprout, Droplets, Thermometer, Dna } from "lucide-react";
+import { Dna,Droplets, Sprout, Thermometer } from "lucide-react";
 
-import Footer from "../../components/sections/footer/default";
-import Navbar from "../../components/sections/navbar/default";
-import { LayoutLines } from "../../components/ui/layout-lines";
+import Footer from "@/components/sections/footer/default";
+import Navbar from "@/components/sections/navbar/default";
+import { LayoutLines } from "@/components/ui/layout-lines";
 
 export default function Technology() {
   return (

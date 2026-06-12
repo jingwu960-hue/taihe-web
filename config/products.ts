@@ -1,7 +1,7 @@
 // 产品详情数据配置
 import type { ProductDetail, ProductItem } from '@/types';
 
-export const productItems: ProductItem[] = [
+const productItems: ProductItem[] = [
   {
     id: 1,
     name: '苏翠一号梨',
@@ -130,10 +130,6 @@ export const productDetails: Record<string, ProductDetail> = {
   },
 };
 
-export const getProductDetail = (category: string): ProductDetail | undefined => {
-  return productDetails[category];
-};
-
 export const getProductBySlug = (slug: string): ProductDetail | undefined => {
   const product = productItems.find((p) => p.slug === slug);
   if (!product) return undefined;
@@ -150,9 +146,4 @@ export const getProductBySlug = (slug: string): ProductDetail | undefined => {
     image: product.image,
     description: product.description,
   };
-};
-
-export const getProductSlugByCategory = (category: string, index: number = 0): string => {
-  const products = productItems.filter((p) => p.category === category);
-  return products[index]?.slug ?? products[0]?.slug ?? '';
 };

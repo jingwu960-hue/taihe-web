@@ -1,7 +1,6 @@
+import { Citrus,Droplets, HeartPulse, Leaf, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-import { Sparkles, Droplets, HeartPulse, Leaf, Citrus } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';

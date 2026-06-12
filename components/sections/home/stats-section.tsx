@@ -1,5 +1,3 @@
-"use client";
-
 import { Counter } from "@/components/ui/counter";
 import { siteConfig } from "@/config/site";
 

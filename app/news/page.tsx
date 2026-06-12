@@ -1,7 +1,7 @@
 "use client";
 
+import { BarChart3, Newspaper, Sprout } from "lucide-react";
 import { useState } from "react";
-import { Newspaper, BarChart3, Sprout } from "lucide-react";
 
 import Footer from "@/components/sections/footer/default";
 import Navbar from "@/components/sections/navbar/default";
@@ -138,6 +138,7 @@ export default function News() {
                 key={category.id}
                 variant={activeCategory === category.id ? "default" : "secondary"}
                 onClick={() => setActiveCategory(category.id)}
+                className="cursor-pointer"
               >
                 {category.name}
               </Button>

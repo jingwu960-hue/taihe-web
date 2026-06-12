@@ -1,7 +1,8 @@
 'use client';
 
-import { ArrowLeft,Home } from 'lucide-react';
+import { ArrowLeft, Home } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 
@@ -9,6 +10,8 @@ import { Button } from '@/components/ui/button';
  * 404 页面
  */
 export default function NotFound() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
       <div className="text-center max-w-md">
@@ -34,11 +37,9 @@ export default function NotFound() {
             </Link>
           </Button>
           
-          <Button variant="outline" asChild>
-            <Link href="javascript:history.back()">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              返回上一页
-            </Link>
+          <Button variant="outline" onClick={() => router.back()}>
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            返回上一页
           </Button>
         </div>
       </div>

@@ -2,9 +2,10 @@ import "@/app/globals.css";
 
 import type { Metadata } from "next";
 
-import { siteConfig } from "../config/site";
 import { inter } from "@/lib/fonts";
 import { AppProviders } from "@/providers";
+
+import { siteConfig } from "../config/site";
 
 export const metadata: Metadata = {
   title: {

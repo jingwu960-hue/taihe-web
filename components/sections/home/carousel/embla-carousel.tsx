@@ -37,34 +37,15 @@ const EmblaCarousel: React.FC<PropType> = ({
     delay: 2000,
   },
 }) => {
-  // 检查是否需要减少动画 - 使用 useState 和 useEffect 来避免 SSR 问题
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [hasMounted, setHasMounted] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-    
-    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener('change', handleChange);
-    
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  // 处理空数据边界条件
-  if (!banners || banners.length === 0) {
-    return (
-      <section className="relative w-full overflow-hidden h-[400px] md:h-[500px]">
-        <div className="h-full bg-gradient-to-r from-brand-soft-green/20 to-brand-soft-orange/20 flex items-center justify-center">
-          <p className="text-muted-foreground">暂无轮播图</p>
-        </div>
-      </section>
-    );
-  }
+  // ✅ 所有 Hook 必须在组件顶部、任何条件判断/返回之前调用
+  // 使用 useState 惰性初始化避免 SSR 问题，同时消除 effect 中的同步 setState
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  });
 
   // 如果用户 prefers reduced motion，禁用自动播放
-  const adjustedAutoplayOptions = hasMounted && prefersReducedMotion 
+  const adjustedAutoplayOptions = prefersReducedMotion
     ? { ...autoplayOptions, playOnInit: false }
     : autoplayOptions;
 
@@ -72,7 +53,10 @@ const EmblaCarousel: React.FC<PropType> = ({
     AutoScroll(adjustedAutoplayOptions),
   ]);
 
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>(() => {
+    // 惰性初始化空数组，避免在 effect 中同步设置
+    return [];
+  });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const {
@@ -86,23 +70,40 @@ const EmblaCarousel: React.FC<PropType> = ({
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, []);
 
+  // ✅ 订阅 prefers-reduced-motion 变化（只在事件回调中 setState）
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // ✅ emblaApi 初始化完成后订阅事件
+  // 在事件回调中 setState，而非在 effect 体中同步调用
   useEffect(() => {
     if (!emblaApi) return;
 
-    // 直接设置，移除不必要的 requestAnimationFrame
-    setScrollSnaps(emblaApi.scrollSnapList());
-    
-    emblaApi.on('select', onSelect);
+    // 通过 onSelect 回调触发，而不是直接在 effect 中同步 setState
+    const handleSelect = () => onSelect(emblaApi);
+    emblaApi.on('select', handleSelect);
+
+    // 使用 requestAnimationFrame 避免同步级联渲染
+    const rafId = requestAnimationFrame(() => {
+      setScrollSnaps(emblaApi.scrollSnapList());
+      onSelect(emblaApi);
+    });
 
     return () => {
-      emblaApi.off('select', onSelect);
+      cancelAnimationFrame(rafId);
+      emblaApi.off('select', handleSelect);
     };
   }, [emblaApi, onSelect]);
 
   // 添加键盘导航支持
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (!emblaApi) return;
-    
+
     if (e.key === 'ArrowLeft') {
       e.preventDefault();
       onAutoScrollButtonClick(onPrevButtonClick);
@@ -118,8 +119,19 @@ const EmblaCarousel: React.FC<PropType> = ({
     e.currentTarget.src = defaultPlaceholder;
   };
 
+  // 处理空数据边界条件 — 移到所有 Hook 之后
+  if (!banners || banners.length === 0) {
+    return (
+      <section className="relative w-full overflow-hidden h-[400px] md:h-[500px]">
+        <div className="h-full bg-gradient-to-r from-brand-soft-green/20 to-brand-soft-orange/20 flex items-center justify-center">
+          <p className="text-muted-foreground">暂无轮播图</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section 
+    <section
       className="relative w-full overflow-hidden"
       onKeyDown={handleKeyDown}
       tabIndex={0}
@@ -130,8 +142,8 @@ const EmblaCarousel: React.FC<PropType> = ({
         <div className="overflow-hidden" ref={emblaRef} role="list">
           <div className="flex touch-pan-y pinch-zoom">
             {banners.map((banner, index) => (
-              <div 
-                className="relative flex-[0_0_100%] min-w-0" 
+              <div
+                className="relative flex-[0_0_100%] min-w-0"
                 key={index}
                 role="listitem"
                 aria-roledescription="幻灯片"

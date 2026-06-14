@@ -1,64 +1,75 @@
-import { EmblaCarouselType } from 'embla-carousel'
+import { EmblaCarouselType } from 'embla-carousel';
 import React, {
   ComponentPropsWithRef,
   useCallback,
   useEffect,
-  useState
-} from 'react'
+  useState,
+} from 'react';
 
 type UsePrevNextButtonsType = {
-  prevBtnDisabled: boolean
-  nextBtnDisabled: boolean
-  onPrevButtonClick: () => void
-  onNextButtonClick: () => void
-}
+  prevBtnDisabled: boolean;
+  nextBtnDisabled: boolean;
+  onPrevButtonClick: () => void;
+  onNextButtonClick: () => void;
+};
 
 export const usePrevNextButtons = (
   emblaApi: EmblaCarouselType | undefined
 ): UsePrevNextButtonsType => {
-  const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
-  const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
+  // ✅ 使用 useState 惰性初始化避免同步 setState
+  const [prevBtnDisabled, setPrevBtnDisabled] = useState(() => {
+    if (!emblaApi) return true;
+    return !emblaApi.canScrollPrev();
+  });
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(() => {
+    if (!emblaApi) return true;
+    return !emblaApi.canScrollNext();
+  });
 
   const onPrevButtonClick = useCallback(() => {
-    if (!emblaApi) return
-    emblaApi.scrollPrev()
-  }, [emblaApi])
+    if (!emblaApi) return;
+    emblaApi.scrollPrev();
+  }, [emblaApi]);
 
   const onNextButtonClick = useCallback(() => {
-    if (!emblaApi) return
-    emblaApi.scrollNext()
-  }, [emblaApi])
+    if (!emblaApi) return;
+    emblaApi.scrollNext();
+  }, [emblaApi]);
 
   const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
-    setPrevBtnDisabled(!emblaApi.canScrollPrev())
-    setNextBtnDisabled(!emblaApi.canScrollNext())
-  }, [])
+    setPrevBtnDisabled(!emblaApi.canScrollPrev());
+    setNextBtnDisabled(!emblaApi.canScrollNext());
+  }, []);
 
   useEffect(() => {
-    if (!emblaApi) return
+    if (!emblaApi) return;
 
-    // 直接设置，移除不必要的 requestAnimationFrame
-    onSelect(emblaApi)
-    
-    emblaApi.on('reInit', onSelect).on('select', onSelect)
+    // ✅ 将初始化调用放到 requestAnimationFrame 中，避免同步级联渲染
+    const handleSelect = () => onSelect(emblaApi);
+    emblaApi.on('reInit', handleSelect).on('select', handleSelect);
+
+    const rafId = requestAnimationFrame(() => {
+      onSelect(emblaApi);
+    });
 
     return () => {
-      emblaApi.off('reInit', onSelect).off('select', onSelect)
-    }
-  }, [emblaApi, onSelect])
+      cancelAnimationFrame(rafId);
+      emblaApi.off('reInit', handleSelect).off('select', handleSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   return {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
-    onNextButtonClick
-  }
-}
+    onNextButtonClick,
+  };
+};
 
-type PropType = ComponentPropsWithRef<'button'>
+type PropType = ComponentPropsWithRef<'button'>;
 
 export const PrevButton = (props: PropType) => {
-  const { children, disabled, ...restProps } = props
+  const { children, disabled, ...restProps } = props;
 
   return (
     <button
@@ -76,11 +87,11 @@ export const PrevButton = (props: PropType) => {
       </svg>
       {children}
     </button>
-  )
-}
+  );
+};
 
 export const NextButton = (props: PropType) => {
-  const { children, disabled, ...restProps } = props
+  const { children, disabled, ...restProps } = props;
 
   return (
     <button
@@ -98,5 +109,5 @@ export const NextButton = (props: PropType) => {
       </svg>
       {children}
     </button>
-  )
-}
+  );
+};

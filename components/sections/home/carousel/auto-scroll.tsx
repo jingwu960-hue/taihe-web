@@ -1,67 +1,70 @@
-import { EmblaCarouselType } from 'embla-carousel'
-import { useCallback, useEffect, useState } from 'react'
+import { EmblaCarouselType } from 'embla-carousel';
+import { useCallback, useEffect, useState } from 'react';
 
 type UseAutoScrollType = {
-  autoScrollIsPlaying: boolean
-  toggleAutoScroll: () => void
-  onAutoScrollButtonClick: (callback: () => void) => void
-}
+  autoScrollIsPlaying: boolean;
+  toggleAutoScroll: () => void;
+  onAutoScrollButtonClick: (callback: () => void) => void;
+};
 
 export const useAutoScroll = (
   emblaApi: EmblaCarouselType | undefined
 ): UseAutoScrollType => {
-  const [autoScrollIsPlaying, setAutoScrollIsPlaying] = useState(false)
+  // ✅ 使用 useState 惰性初始化避免 effect 中同步 setState
+  const [autoScrollIsPlaying, setAutoScrollIsPlaying] = useState(() => {
+    if (!emblaApi) return false;
+    const autoplay = emblaApi.plugins()?.autoplay;
+    return autoplay ? autoplay.isPlaying() : false;
+  });
 
   const onAutoScrollButtonClick = useCallback(
     (callback: () => void) => {
-      const autoplay = emblaApi?.plugins()?.autoplay
-      if (!autoplay) return
+      const autoplay = emblaApi?.plugins()?.autoplay;
+      if (!autoplay) return;
 
-      autoplay.stop()
-      callback()
+      autoplay.stop();
+      callback();
     },
     [emblaApi]
-  )
+  );
 
   const toggleAutoScroll = useCallback(() => {
-    const autoplay = emblaApi?.plugins()?.autoplay
-    if (!autoplay) return
+    const autoplay = emblaApi?.plugins()?.autoplay;
+    if (!autoplay) return;
 
-    const playOrStop = autoplay.isPlaying()
-      ? autoplay.stop
-      : autoplay.play
-    playOrStop()
-  }, [emblaApi])
+    if (autoplay.isPlaying()) {
+      autoplay.stop();
+    } else {
+      autoplay.play();
+    }
+  }, [emblaApi]);
 
   useEffect(() => {
-    const autoplay = emblaApi?.plugins()?.autoplay
-    if (!autoplay) return
+    const autoplay = emblaApi?.plugins()?.autoplay;
+    if (!autoplay) return;
 
-    // 直接设置，移除不必要的 requestAnimationFrame
-    setAutoScrollIsPlaying(autoplay.isPlaying())
-    
-    const handlePlay = () => setAutoScrollIsPlaying(true)
-    const handleStop = () => setAutoScrollIsPlaying(false)
-    const handleReinit = () => setAutoScrollIsPlaying(autoplay.isPlaying())
-    
+    // ✅ 仅在事件回调中 setState，避免同步级联渲染
+    const handlePlay = () => setAutoScrollIsPlaying(true);
+    const handleStop = () => setAutoScrollIsPlaying(false);
+
     emblaApi
       .on('autoplay:play', handlePlay)
       .on('autoplay:stop', handleStop)
-      .on('reInit', handleReinit)
+      .on('reInit', handlePlay);
 
     return () => {
       emblaApi
         .off('autoplay:play', handlePlay)
         .off('autoplay:stop', handleStop)
-        .off('reInit', handleReinit)
-    }
-  }, [emblaApi])
+        .off('reInit', handlePlay);
+    };
+  }, [emblaApi]);
 
   return {
     autoScrollIsPlaying,
     toggleAutoScroll,
-    onAutoScrollButtonClick
-  }
-}
+    onAutoScrollButtonClick,
+  };
+};
 
-export { default as AutoScroll } from 'embla-carousel-autoplay'
+export { default as AutoScroll } from 'embla-carousel-autoplay';

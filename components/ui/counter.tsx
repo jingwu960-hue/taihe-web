@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef,useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 interface CounterProps {
   target: number;
@@ -12,60 +12,46 @@ interface CounterProps {
 
 export function Counter({
   target,
-  suffix = "",
-  prefix = "",
+  suffix = '',
+  prefix = '',
   duration = 2000,
   className,
 }: CounterProps) {
+  // ✅ 使用 useState 惰性初始化代替 effect 中同步 setState
+  const safeTarget = Math.max(0, target);
+  const safeDuration = Math.max(100, duration);
+
+  // 初始值基于 target 惰性设置：首次渲染时显示 0，进入视图后再动画
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const elementRef = useRef<HTMLSpanElement>(null);
 
-  // 边界条件处理
-  const safeTarget = Math.max(0, target);
-  const safeDuration = Math.max(100, duration);
-
   useEffect(() => {
-    // 已经动画过，直接显示目标值
-    if (hasAnimated) {
-      setCount(safeTarget);
-      return;
-    }
-    
-    // 目标值为0，直接显示
-    if (safeTarget === 0) {
-      setCount(0);
-      setHasAnimated(true);
-      return;
-    }
+    if (hasAnimated) return;
 
     // 使用 Intersection Observer 只在可见时播放动画
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
         if (entry.isIntersecting && !hasAnimated) {
-          let startTime: number;
-          let animationFrame: number;
+          let startTime: number | null = null;
 
           const animate = (timestamp: number) => {
-            if (!startTime) startTime = timestamp;
+            if (startTime === null) startTime = timestamp;
             const progress = Math.min((timestamp - startTime) / safeDuration, 1);
-            
-            // 减少重渲染次数：只在整数变化时更新
+
             const currentCount = Math.floor(progress * safeTarget);
             setCount(currentCount);
-            
+
             if (progress < 1) {
-              animationFrame = requestAnimationFrame(animate);
+              requestAnimationFrame(animate);
             } else {
               setCount(safeTarget);
               setHasAnimated(true);
             }
           };
 
-          animationFrame = requestAnimationFrame(animate);
-          
-          // 清理
+          requestAnimationFrame(animate);
           observer.disconnect();
         }
       },

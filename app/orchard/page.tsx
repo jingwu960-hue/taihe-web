@@ -1,26 +1,25 @@
-import Image from "next/image";
 import {
-  Wheat,
   Apple,
-  Fish,
-  Wallet,
-  Grape,
-  Eye,
-  Tractor,
-  Mountain,
-  Tent,
-  Building,
-  Trophy,
-  Medal,
-  CircleCheck,
-  Rocket,
-  ClipboardList,
-  Flower2,
-  TreeDeciduous,
-  Users,
+  BadgeCheck,
   Briefcase,
-  BadgeCheck
-} from "lucide-react";
+  Building,
+  CircleCheck,
+  ClipboardList,
+  Eye,
+  Fish,
+  Flower2,
+  Grape,
+  Medal,
+  Mountain,
+  Rocket,
+  Tent,
+  Tractor,
+  TreeDeciduous,
+  Trophy,
+  Users,
+  Wallet,
+  Wheat} from "lucide-react";
+import Image from "next/image";
 
 import Footer from "@/components/sections/footer/default";
 import Navbar from "@/components/sections/navbar/default";
@@ -56,9 +55,9 @@ type IconKey = keyof typeof iconMap;
 // 园区概况数据
 const baseInfo: Array<{ title: string; value: string; icon: IconKey }> = [
   { title: "总占地面积", value: "1200亩", icon: "Wheat" },
-  { title: "精品水果种植", value: "1200亩", icon: "Apple" },
+  { title: "精品水果种植", value: "852.3亩", icon: "Apple" },
   { title: "水产养殖区", value: "配套建设", icon: "Fish" },
-  { title: "累计投资", value: "近4000万", icon: "Wallet" },
+  { title: "累计投资", value: "超4000万", icon: "Wallet" },
 ];
 
 // 农文旅项目数据
@@ -191,7 +190,7 @@ export default function Orchard() {
                 态禾农业园区依山而建、顺势铺展，整体呈现层次分明的山地梯田果园景观。从空中俯瞰，果树连片成景、道路纵横成网、水系自然点缀，规模化、标准化与景观化融合发展的现代农业格局已基本形成。
               </p>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                园区总占地约1200亩，其中精品水果种植面积1200亩，主要种植桃、梨、猕猴桃等优质果品；配套建设生态水产养殖区，投放多种鱼类等，逐步构建起"种养结合、循环发展"的生态农业体系。
+                园区总占地约1200亩，其中精品水果种植面积852.3亩，主要种植桃、梨、猕猴桃等优质果品；配套建设生态水产养殖区，投放多种鱼类等，逐步构建起&ldquo;种养结合、循环发展&rdquo;的生态农业体系。
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {baseInfo.map((info, index) => {
@@ -225,7 +224,7 @@ export default function Orchard() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">农文旅融合发展</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              在夯实农业产业基础的同时，公司持续延伸农业价值链条，构建"可观赏、可参与、可体验、可消费"的农文旅一体化运营体系
+              在夯实农业产业基础的同时，公司持续延伸农业价值链条，构建&ldquo;可观赏、可参与、可体验、可消费&rdquo;的农文旅一体化运营体系
             </p>
           </div>
 
@@ -417,7 +416,7 @@ export default function Orchard() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">发展战略</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              态禾农业园区按照"三步走"战略稳步推进
+              态禾农业园区按照&ldquo;三步走&rdquo;战略稳步推进
             </p>
           </div>
           <div className="space-y-6">

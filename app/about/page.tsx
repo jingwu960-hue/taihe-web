@@ -112,7 +112,7 @@ export default function About() {
               <CardContent className="p-8">
                 <TreeDeciduous size={56} className="shrink-0 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-3">园区规模</h3>
-                    <p className="text-muted-foreground mb-4">态禾农业园区总占地约1200亩，其中精品水果种植面积1200亩，主要种植桃、梨、猕猴桃等优质产品。</p>
+                    <p className="text-muted-foreground mb-4">态禾农业园区总占地约1200亩，其中精品水果种植面积852.3亩，主要种植桃、梨、猕猴桃等优质产品。</p>
                     <p className="text-muted-foreground">配套建设生态水产养殖区，投放多种鱼类，逐步构建起&quot;种养结合、循环发展&quot;的生态农业体系。</p>
               </CardContent>
             </Card>

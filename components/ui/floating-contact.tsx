@@ -3,40 +3,29 @@
 import { ArrowUp, MessageSquare, Phone } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { siteConfig } from "@/config/site";
-
 import { Button } from "./button";
 
 export function FloatingContact() {
-  const [isVisible, setIsVisible] = useState(false);
-  
-  // 使用 useRef 来保持最新的状态引用，避免闭包问题
-  const lastKnownScrollY = useRef(0);
+  // ✅ 使用 useState 惰性初始化代替 effect 中同步 setState
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.pageYOffset > 300;
+  });
+
   const ticking = useRef(false);
 
-  // 使用 requestAnimationFrame 来优化滚动处理
-  const updateScrollState = useCallback(() => {
-    const currentY = lastKnownScrollY.current;
-    setIsVisible(currentY > 300);
-    ticking.current = false;
+  const handleScroll = useCallback(() => {
+    if (ticking.current) return;
+    ticking.current = true;
+
+    window.requestAnimationFrame(() => {
+      setIsVisible(window.pageYOffset > 300);
+      ticking.current = false;
+    });
   }, []);
 
-  const handleScroll = useCallback(() => {
-    lastKnownScrollY.current = window.pageYOffset;
-
-    if (!ticking.current) {
-      window.requestAnimationFrame(updateScrollState);
-      ticking.current = true;
-    }
-  }, [updateScrollState]);
-
   useEffect(() => {
-    // 初始检查
-    lastKnownScrollY.current = window.pageYOffset;
-    setIsVisible(window.pageYOffset > 300);
-
     window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -57,7 +46,7 @@ export function FloatingContact() {
         className="w-12 h-12 rounded-full bg-primary hover:bg-primary/90 shadow-lg"
         asChild
       >
-        <a href={`tel:${siteConfig.contact.phone}`}>
+        <a href="tel:13339842020">
           <Phone className="size-5" />
           <span className="sr-only">电话咨询</span>
         </a>

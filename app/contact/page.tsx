@@ -1,6 +1,7 @@
 "use client";
 
 import { Mail, Map, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 import Footer from "@/components/sections/footer/default";
@@ -151,12 +152,14 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="block"
               >
-                <div className="h-80 rounded-lg overflow-hidden mb-6 cursor-pointer hover:opacity-90 transition-opacity">
+                <div className="relative h-80 rounded-lg overflow-hidden mb-6 cursor-pointer hover:opacity-90 transition-opacity">
                   {!mapError ? (
-                    <img
+                    <Image
                       src="https://restapi.amap.com/v3/staticmap?location=114.1078,31.3090&zoom=13&size=800*320&markers=large,0xFF0000,1:114.1078,31.3090&key=YOUR_AMAP_KEY"
                       alt="公司位置地图"
-                      className={`w-full h-full object-cover ${mapLoaded ? "block" : "hidden"}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className={`object-cover ${mapLoaded ? "block" : "hidden"}`}
                       onLoad={() => setMapLoaded(true)}
                       onError={() => {
                         setMapError(true);
@@ -165,7 +168,7 @@ export default function Contact() {
                     />
                   ) : null}
                   {(!mapLoaded || mapError) && (
-                    <div className="w-full h-full bg-gradient-to-br from-primary/20 to-brand-foreground/20 flex items-center justify-center">
+                    <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-primary/20 to-brand-foreground/20 flex items-center justify-center">
                       <div className="text-center">
                         <Map size={64} className="shrink-0 text-primary mx-auto mb-4" />
                         <p className="text-muted-foreground">点击查看地图位置</p>
